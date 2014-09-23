@@ -16,6 +16,8 @@
 		DA4397C319D13C7E00BC40A4 /* SwiftDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4397C219D13C7E00BC40A4 /* SwiftDemoTests.swift */; };
 		DA4397CB19D13DB300BC40A4 /* libUMFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC7C77819D03ACF001B4E27 /* libUMFeedback.a */; };
 		DA4397CC19D13DDB00BC40A4 /* umFeedback.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DAC7C77619D039D5001B4E27 /* umFeedback.bundle */; };
+		DA4397CE19D1484A00BC40A4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA4397CD19D1484A00BC40A4 /* Default-568h@2x.png */; };
+		DA4397D219D1496600BC40A4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA4397D019D1496600BC40A4 /* Default-568h@2x.png */; };
 		DAC7C70F19D033C3001B4E27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC7C70E19D033C3001B4E27 /* main.m */; };
 		DAC7C71219D033C3001B4E27 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC7C71119D033C3001B4E27 /* AppDelegate.m */; };
 		DAC7C71519D033C3001B4E27 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC7C71419D033C3001B4E27 /* ViewController.m */; };
@@ -87,6 +89,8 @@
 		DA4397C119D13C7E00BC40A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA4397C219D13C7E00BC40A4 /* SwiftDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDemoTests.swift; sourceTree = "<group>"; };
 		DA4397CA19D13D7100BC40A4 /* SwiftDemo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		DA4397CD19D1484A00BC40A4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		DA4397D019D1496600BC40A4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		DAC7C70919D033C3001B4E27 /* FeedbackDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedbackDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC7C70D19D033C3001B4E27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAC7C70E19D033C3001B4E27 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -176,6 +180,7 @@
 		DA4397A919D13C7E00BC40A4 /* SwiftDemo */ = {
 			isa = PBXGroup;
 			children = (
+				DA4397D019D1496600BC40A4 /* Default-568h@2x.png */,
 				DA4397CA19D13D7100BC40A4 /* SwiftDemo-Bridging-Header.h */,
 				DA4397AC19D13C7E00BC40A4 /* AppDelegate.swift */,
 				DA4397AE19D13C7E00BC40A4 /* ViewController.swift */,
@@ -239,6 +244,7 @@
 		DAC7C70B19D033C3001B4E27 /* FeedbackDemo */ = {
 			isa = PBXGroup;
 			children = (
+				DA4397CD19D1484A00BC40A4 /* Default-568h@2x.png */,
 				DA4397A219D13BA400BC40A4 /* UMViewController_iPhone.xib */,
 				DAC7C77619D039D5001B4E27 /* umFeedback.bundle */,
 				DAC7C73219D039C3001B4E27 /* chat */,
@@ -464,6 +470,7 @@
 			files = (
 				DA4397CC19D13DDB00BC40A4 /* umFeedback.bundle in Resources */,
 				DA4397B219D13C7E00BC40A4 /* Main.storyboard in Resources */,
+				DA4397D219D1496600BC40A4 /* Default-568h@2x.png in Resources */,
 				DA4397B719D13C7E00BC40A4 /* LaunchScreen.xib in Resources */,
 				DA4397B419D13C7E00BC40A4 /* Images.xcassets in Resources */,
 			);
@@ -503,6 +510,7 @@
 				DAC7C71A19D033C3001B4E27 /* Images.xcassets in Resources */,
 				DAC7C76A19D039C3001B4E27 /* nav_btn_bg.png in Resources */,
 				DAC7C76619D039C3001B4E27 /* messages_toolbar_background.png in Resources */,
+				DA4397CE19D1484A00BC40A4 /* Default-568h@2x.png in Resources */,
 				DAC7C76D19D039C3001B4E27 /* send@2x.png in Resources */,
 				DAC7C75C19D039C3001B4E27 /* icon_rightArrow@2x.png in Resources */,
 				DAC7C76219D039C3001B4E27 /* messages_left_bubble@2x.png in Resources */,
