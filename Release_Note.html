@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="main.css" type="text/css" />
+</head>
+<body>
+<h1 id="ios-用户反馈-release-note">iOS 用户反馈 Release Note</h1>
+<h3 id="版本v1.4.2">版本：v1.4.2</h3>
+<ul>
+<li>发布日期：2014.09.24</li>
+<li>主要更新：
+<ol style="list-style-type: decimal">
+<li>增加iOS8的支持.</li>
+</ol></li>
+</ul>
+<hr />
+<h3 id="版本v1.4.1">版本：v1.4.1</h3>
+<ul>
+<li>发布日期：2013.10.10</li>
+<li>主要更新：</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>HTML版的反馈增加对iOS7的支持.</li>
+<li>demo示例工程增加对iOS7的支持.</li>
+</ol>
+<hr />
+<h3 id="版本v1.4">版本：v1.4</h3>
+<ul>
+<li>发布日期：2013.04.18</li>
+<li>主要更新：
+<ol style="list-style-type: decimal">
+<li>增加log开关接口<code>+[UMFeedback setLogEnabled:(BOOL)value]</code>.</li>
+<li>HTML版的反馈<code>dismiss</code>时post <code>UMFBWebViewDismissNotification</code>.</li>
+<li>native接口支持NSArray类型的字段<code>tags</code>，可以在反馈里打标签。 <code>[dictionary setObject:@[@&quot;Good&quot;,@&quot;VIP&quot;] forKey:@&quot;tags&quot;];</code>.</li>
+<li>新的demo示例工程</li>
+</ol></li>
+</ul>
+<hr />
+<h3 id="版本v1.3">版本：v1.3</h3>
+<ul>
+<li>发布日期：2012-10-16</li>
+<li>主要更新：
+<ol style="list-style-type: decimal">
+<li>增加数据API接口，用户可以使用接口自己做Native界面.</li>
+<li>解决product name为中文或特殊字符时css，js无法加载的问题.</li>
+<li>增加showFeedback:withAppkey:dictionary:方法，可以方便的从app往js里传值.</li>
+</ol></li>
+</ul>
+<hr />
+<h3 id="版本v1.2.2">版本：v1.2.2</h3>
+<ul>
+<li>发布日期：2012.09.27</li>
+<li>主要更新：
+<ol style="list-style-type: decimal">
+<li>增加英语资源文件，英文系统下自动显示英文界面.</li>
+<li>用户反馈界面点击空白处可以收起键盘.</li>
+<li>增加Demo工程.</li>
+</ol></li>
+<li><p>注意：</p>
+<ol style="list-style-type: decimal">
+<li><p>支持数据API的双向反馈SDK十一后推出，有此需求的用户请稍候.</p></li>
+<li><p>升级需要同时替换<code>libUMFeedback.a</code>和<code>umFeedback.bundle</code>.</p></li>
+<li><p>自定义过界面的用户别忘记对<code>umFeedback.bundle</code>里的 <code>chat_zh-Hans.html</code>,<code>main.css</code>,<code>main.js</code>文件作diff比较.</p></li>
+</ol></li>
+</ul>
+<hr />
+<h3 id="版本v1.2.1">版本：v1.2.1</h3>
+<ul>
+<li>发布日期：2012.09.19</li>
+<li>主要更新：
+<ol style="list-style-type: decimal">
+<li>增加armv7s架构，支持iOS6 , Xcode4.5.</li>
+<li>修改main.css，兼容iOS6的webView.</li>
+<li>取消评价默认值为3(一般).</li>
+</ol></li>
+<li><p>注意：</p>
+<p>支持数据API的双向反馈SDK即将推出，有此需求的用户请稍候.</p></li>
+</ul>
+<hr />
+<h3 id="版本v1.2">版本：v1.2</h3>
+<ul>
+<li>发布日期：2012.04.11</li>
+<li>主要更新：
+<ol style="list-style-type: decimal">
+<li>更好的支持iOS4.</li>
+</ol></li>
+</ul>
+<hr />
+<h3 id="版本v1.1">版本：v1.1</h3>
+<ul>
+<li>发布日期：2012.04.01</li>
+<li>主要更新：
+<ol style="list-style-type: decimal">
+<li>html5做展现，定制容易，html，css，javascript自由修改</li>
+<li>多语言支持，需要复制<code>umFeedback.bundle</code>里的<code>chat_zh-Hans.html</code>为<code>chat_xx.html</code>(xx为语言标记,<code>en</code>,<code>ja</code>等) sdk自动选择适合语言的html页面，顺序为 <code>本机语言</code> &gt; <code>英语(en)</code> &gt; <code>简体中文(zh-Hans)</code>, 这样可以制作完全不同风格的多国语言界面，而不限于文字上的i18n</li>
+<li>双向,实时,反馈</li>
+<li>数据本地缓存，未联网状态仍可以查看，发送失败下次自动发送</li>
+<li>支持自定义数据项，详细参见main.js里的submitForm方法</li>
+</ol></li>
+</ul>
+</body>
+</html>
