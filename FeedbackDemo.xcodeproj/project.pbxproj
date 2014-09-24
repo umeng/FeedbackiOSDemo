@@ -15,9 +15,10 @@
 		DA4397B719D13C7E00BC40A4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA4397B519D13C7E00BC40A4 /* LaunchScreen.xib */; };
 		DA4397C319D13C7E00BC40A4 /* SwiftDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4397C219D13C7E00BC40A4 /* SwiftDemoTests.swift */; };
 		DA4397CB19D13DB300BC40A4 /* libUMFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC7C77819D03ACF001B4E27 /* libUMFeedback.a */; };
-		DA4397CC19D13DDB00BC40A4 /* umFeedback.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DAC7C77619D039D5001B4E27 /* umFeedback.bundle */; };
 		DA4397CE19D1484A00BC40A4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA4397CD19D1484A00BC40A4 /* Default-568h@2x.png */; };
 		DA4397D219D1496600BC40A4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA4397D019D1496600BC40A4 /* Default-568h@2x.png */; };
+		DA4397D719D2B33C00BC40A4 /* umFeedback.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DA4397D619D2B33C00BC40A4 /* umFeedback.bundle */; };
+		DA4397D819D2B33C00BC40A4 /* umFeedback.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DA4397D619D2B33C00BC40A4 /* umFeedback.bundle */; };
 		DAC7C70F19D033C3001B4E27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC7C70E19D033C3001B4E27 /* main.m */; };
 		DAC7C71219D033C3001B4E27 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC7C71119D033C3001B4E27 /* AppDelegate.m */; };
 		DAC7C71519D033C3001B4E27 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC7C71419D033C3001B4E27 /* ViewController.m */; };
@@ -54,7 +55,6 @@
 		DAC7C77319D039C3001B4E27 /* UMFeedbackTableViewCellRight.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC7C75419D039C3001B4E27 /* UMFeedbackTableViewCellRight.m */; };
 		DAC7C77419D039C3001B4E27 /* UMFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC7C75619D039C3001B4E27 /* UMFeedbackViewController.m */; };
 		DAC7C77519D039C3001B4E27 /* UMFeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC7C75719D039C3001B4E27 /* UMFeedbackViewController.xib */; };
-		DAC7C77719D039D5001B4E27 /* umFeedback.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DAC7C77619D039D5001B4E27 /* umFeedback.bundle */; };
 		DAC7C77919D03ACF001B4E27 /* libUMFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC7C77819D03ACF001B4E27 /* libUMFeedback.a */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +91,7 @@
 		DA4397CA19D13D7100BC40A4 /* SwiftDemo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		DA4397CD19D1484A00BC40A4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		DA4397D019D1496600BC40A4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		DA4397D619D2B33C00BC40A4 /* umFeedback.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = umFeedback.bundle; sourceTree = "<group>"; };
 		DAC7C70919D033C3001B4E27 /* FeedbackDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedbackDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC7C70D19D033C3001B4E27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAC7C70E19D033C3001B4E27 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -138,7 +139,6 @@
 		DAC7C75519D039C3001B4E27 /* UMFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMFeedbackViewController.h; sourceTree = "<group>"; };
 		DAC7C75619D039C3001B4E27 /* UMFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMFeedbackViewController.m; sourceTree = "<group>"; };
 		DAC7C75719D039C3001B4E27 /* UMFeedbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMFeedbackViewController.xib; sourceTree = "<group>"; };
-		DAC7C77619D039D5001B4E27 /* umFeedback.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = umFeedback.bundle; sourceTree = "<group>"; };
 		DAC7C77819D03ACF001B4E27 /* libUMFeedback.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMFeedback.a; sourceTree = "<group>"; };
 		DAC7C77A19D03AD9001B4E27 /* UMFeedback.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMFeedback.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -222,6 +222,7 @@
 			children = (
 				DAC7C77A19D03AD9001B4E27 /* UMFeedback.h */,
 				DAC7C77819D03ACF001B4E27 /* libUMFeedback.a */,
+				DA4397D619D2B33C00BC40A4 /* umFeedback.bundle */,
 				DAC7C70B19D033C3001B4E27 /* FeedbackDemo */,
 				DAC7C72519D033C3001B4E27 /* FeedbackDemoTests */,
 				DA4397A919D13C7E00BC40A4 /* SwiftDemo */,
@@ -246,7 +247,6 @@
 			children = (
 				DA4397CD19D1484A00BC40A4 /* Default-568h@2x.png */,
 				DA4397A219D13BA400BC40A4 /* UMViewController_iPhone.xib */,
-				DAC7C77619D039D5001B4E27 /* umFeedback.bundle */,
 				DAC7C73219D039C3001B4E27 /* chat */,
 				DAC7C71019D033C3001B4E27 /* AppDelegate.h */,
 				DAC7C71119D033C3001B4E27 /* AppDelegate.m */,
@@ -468,7 +468,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA4397CC19D13DDB00BC40A4 /* umFeedback.bundle in Resources */,
+				DA4397D819D2B33C00BC40A4 /* umFeedback.bundle in Resources */,
 				DA4397B219D13C7E00BC40A4 /* Main.storyboard in Resources */,
 				DA4397D219D1496600BC40A4 /* Default-568h@2x.png in Resources */,
 				DA4397B719D13C7E00BC40A4 /* LaunchScreen.xib in Resources */,
@@ -500,7 +500,6 @@
 				DAC7C77119D039C3001B4E27 /* UMContactViewController.xib in Resources */,
 				DAC7C76F19D039C3001B4E27 /* umeng_logo.png in Resources */,
 				DAC7C76019D039C3001B4E27 /* item_ok@2x.png in Resources */,
-				DAC7C77719D039D5001B4E27 /* umFeedback.bundle in Resources */,
 				DAC7C75F19D039C3001B4E27 /* item_cancel_selected@2x.png in Resources */,
 				DAC7C76E19D039C3001B4E27 /* send_selected@2x.png in Resources */,
 				DAC7C76419D039C3001B4E27 /* messages_tableview_background.png in Resources */,
@@ -508,6 +507,7 @@
 				DAC7C75E19D039C3001B4E27 /* item_cancel@2x.png in Resources */,
 				DAC7C77519D039C3001B4E27 /* UMFeedbackViewController.xib in Resources */,
 				DAC7C71A19D033C3001B4E27 /* Images.xcassets in Resources */,
+				DA4397D719D2B33C00BC40A4 /* umFeedback.bundle in Resources */,
 				DAC7C76A19D039C3001B4E27 /* nav_btn_bg.png in Resources */,
 				DAC7C76619D039C3001B4E27 /* messages_toolbar_background.png in Resources */,
 				DA4397CE19D1484A00BC40A4 /* Default-568h@2x.png in Resources */,
@@ -840,6 +840,7 @@
 				DA4397C619D13C7E00BC40A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DA4397C719D13C7E00BC40A4 /* Build configuration list for PBXNativeTarget "SwiftDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -848,6 +849,7 @@
 				DA4397C919D13C7E00BC40A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DAC7C70419D033C3001B4E27 /* Build configuration list for PBXProject "FeedbackDemo" */ = {
 			isa = XCConfigurationList;
