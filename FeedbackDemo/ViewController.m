@@ -1,79 +1,156 @@
 //
 //  ViewController.m
-//  Demo
+//  Feedback
 //
-//  Created by iOS@Umeng on 9/27/12.
-//  Copyright (c) 2012 iOS@Umeng. All rights reserved.
+//  Created by amoblin on 14/7/30.
+//  Copyright (c) 2014年 umeng. All rights reserved.
 //
 
 #import "ViewController.h"
-#import "UMFeedbackViewController.h"
+#import "UMFeedback.h"
+#import "CustomViewController.h"
+
+
+#define IOS_7_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
+#define IOS_8_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+#define UIColorFromRGB(r,g,b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
 
 @interface ViewController ()
-
-@end
-
-@implementation UINavigationBar (CustomImage)
-- (void)drawRect:(CGRect)rect {
-  UIImage *image = [UIImage imageNamed:@"nav_bar_bg@2x.png"];
-  [image drawInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-}
+@property (strong, nonatomic) NSArray *buttons;
 @end
 
 @implementation ViewController
-@synthesize umFeedback = _umFeedback;
 
-- (void)viewDidLoad {
-  [super viewDidLoad];
-  _umFeedback = [UMFeedback sharedInstance];
-  [_umFeedback setAppkey:UMENG_APPKEY delegate:self];
-
-  // Do any additional setup after loading the view, typically from a nib.
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
 }
 
-- (void)viewDidUnload {
-  [super viewDidUnload];
-  // Release any retained subviews of the main view.
+- (id)init {
+    self = [super init];
+    if (self) {
+        self.view.backgroundColor = [UIColor whiteColor];
+        self.title = NSLocalizedString(@"Demo", nil);
+
+    }
+    return self;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-  } else {
-    return YES;
-  }
+- (void)loadView {
+    [super loadView];
+    NSUInteger i = 1;
+    NSMutableArray *buttons = [[NSMutableArray alloc] init];
+    for (NSString *title in @[NSLocalizedString(@"Push", nil),
+                              NSLocalizedString(@"Modal", nil),
+                              NSLocalizedString(@"List", nil),
+                              NSLocalizedString(@"Custom", nil)]) {
+        UIButton *feedbackButton = [[UIButton alloc] initWithFrame:CGRectMake(60, 100 * i, 200, 100)];
+        feedbackButton.tag = i;
+        [feedbackButton setTitle:title
+                        forState:UIControlStateNormal];
+        [feedbackButton setTitleColor:UIColorFromRGB(0.0, 122.0, 255.0)
+                             forState:UIControlStateNormal];
+        [feedbackButton addTarget:self
+                           action:@selector(feedbackButtonPressed:)
+                 forControlEvents:UIControlEventTouchUpInside];
+        [buttons addObject:feedbackButton];
+        [self.view addSubview:feedbackButton];
+        i++;
+    }
+    self.buttons = buttons;
 }
 
-- (IBAction)nativeFeedback:(id)sender {
-    [self showNativeFeedbackWithAppkey:UMENG_APPKEY];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self updateLayoutWithOrientation:self.interfaceOrientation];
 }
 
-- (void)showNativeFeedbackWithAppkey:(NSString *)appkey {
-    UMFeedbackViewController *feedbackViewController = [[UMFeedbackViewController alloc] initWithNibName:@"UMFeedbackViewController" bundle:nil];
-    feedbackViewController.appkey = appkey;
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:feedbackViewController];
-//    navigationController.navigationBar.barStyle = UIBarStyleBlack;
-//    navigationController.navigationBar.translucent = NO;
-    [self presentModalViewController:navigationController animated:YES];
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [self updateLayoutWithOrientation:toInterfaceOrientation];
 }
 
-- (IBAction)webFeedback:(id)sender {
-  [UMFeedback showFeedback:self withAppkey:UMENG_APPKEY];
-//    [UMFeedback showFeedback:self withAppkey:UMENG_APPKEY dictionary:[NSDictionary dictionaryWithObject:[NSArray arrayWithObjects:@"a", @"b", @"c", nil] forKey:@"hello"]];
+- (void)updateLayoutWithOrientation:(UIInterfaceOrientation)orientation {
+    CGFloat viewWidth, viewHeight;
+    switch (orientation) {
+        case UIInterfaceOrientationPortrait:
+        case UIInterfaceOrientationPortraitUpsideDown: {
+            viewWidth = [UIScreen mainScreen].bounds.size.width;
+            viewHeight= [UIScreen mainScreen].bounds.size.height;
+            break;
+        }
+        case UIInterfaceOrientationLandscapeLeft:
+        case UIInterfaceOrientationLandscapeRight: {
+            if (IOS_8_OR_LATER) {
+                viewWidth = [UIScreen mainScreen].bounds.size.width;
+                viewHeight= [UIScreen mainScreen].bounds.size.height;
+            } else {
+                viewWidth = [UIScreen mainScreen].bounds.size.height;
+                viewHeight = [UIScreen mainScreen].bounds.size.width;
+            }
+            break;
+        }
+        default:
+            viewWidth = 0;
+            viewHeight = 0;
+            break;
+    }
+    NSUInteger i = 1;
+    if (viewHeight == 320) {
+        for (UIButton *button in self.buttons) {
+            if (i < 3) {
+                button.frame = CGRectMake(viewWidth/4-100, 100*i, 200, 100);
+            } else {
+                button.frame = CGRectMake(viewWidth*3/4-100, 100*(i-2), 200, 100);
+            }
+            i++;
+        }
+    } else {
+        for (UIButton *button in self.buttons) {
+            button.frame = CGRectMake(viewWidth/2-100, 100 * i, 200, 100);
+            i++;
+        }
+    }
 }
 
-- (IBAction)checkNewReplies:(id)sender {
-  [_contentField resignFirstResponder];
-  [UMFeedback checkWithAppkey:UMENG_APPKEY];
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
 }
 
-- (IBAction)editingEnded:(id)sender {
-  [sender resignFirstResponder];
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
-- (void)dealloc {
-    _umFeedback.delegate = nil;
-    [super dealloc];
+- (void)feedbackButtonPressed:(UIButton *)sender {
+    switch (sender.tag) {
+        case 1:
+            [self.navigationController pushViewController:[UMFeedback feedbackViewController]
+                                                 animated:YES];
+            break;
+        case 2:
+            [self presentModalViewController:[UMFeedback feedbackModalViewController]
+                                    animated:YES];
+//             previous method
+//            [UMFeedback showFeedback:self withAppkey:APPKEY];
+            break;
+        case 3:
+//            self.navigationController pushViewController:<#(UIViewController *)#> animated:<#(BOOL)#>
+            break;
+        case 4:
+            [self.navigationController pushViewController:[CustomViewController new]
+                                                 animated:YES];
+            break;
+        default:
+            break;
+    }
 }
 
 @end
