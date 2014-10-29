@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  UMFeedback
+
+  Created by amoblin on 14/10/10.
+
+*/
+
+"Demo" = "演示";
+"Push" = "以导航窗口显示";
+"Modal" = "以模态窗口显示";
+"Custom" = "使用自定义界面";

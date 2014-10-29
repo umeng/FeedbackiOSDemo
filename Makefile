@@ -1,6 +1,7 @@
 test:
-	xctool -project FeedbackDemo.xcodeproj -scheme FeedbackDemo -configuration Debug -sdk "iphonesimulator8.0" build
+	xctool -project FeedbackDemo.xcodeproj -scheme FeedbackDemo -configuration Debug -sdk "iphonesimulator8.1" build
+	xctool -project FeedbackDemo.xcodeproj -scheme FeedbackDemo -configuration Debug -sdk "iphoneos8.1" build
 
 release:
-	git archive master --prefix='UMFeedback_iOS_1.4.2/' --format=zip > UMFeedback_iOS_1.4.2.zip
-	mv UMFeedback_iOS_1.4.2.zip ~/Downloads
+	git archive master --prefix='UMFeedback_iOS_2.0/' --format=zip > UMFeedback_iOS_2.0.zip
+	mv UMFeedback_iOS_2.0.zip ~/Downloads

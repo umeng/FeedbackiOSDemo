@@ -46,7 +46,6 @@
     NSMutableArray *buttons = [[NSMutableArray alloc] init];
     for (NSString *title in @[NSLocalizedString(@"Push", nil),
                               NSLocalizedString(@"Modal", nil),
-                              NSLocalizedString(@"List", nil),
                               NSLocalizedString(@"Custom", nil)]) {
         UIButton *feedbackButton = [[UIButton alloc] initWithFrame:CGRectMake(60, 100 * i, 200, 100)];
         feedbackButton.tag = i;
@@ -142,9 +141,6 @@
 //            [UMFeedback showFeedback:self withAppkey:APPKEY];
             break;
         case 3:
-//            self.navigationController pushViewController:<#(UIViewController *)#> animated:<#(BOOL)#>
-            break;
-        case 4:
             [self.navigationController pushViewController:[CustomViewController new]
                                                  animated:YES];
             break;

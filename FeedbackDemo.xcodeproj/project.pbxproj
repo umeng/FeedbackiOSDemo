@@ -19,6 +19,8 @@
 		DAA530691A00CA790020A848 /* CustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA530681A00CA790020A848 /* CustomViewController.m */; };
 		DAA5306D1A00CCD50020A848 /* libUMessage_Sdk_1.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAA5306B1A00CCD50020A848 /* libUMessage_Sdk_1.1.0.a */; };
 		DAA5306E1A00CCD50020A848 /* libUMessage_Sdk_1.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAA5306B1A00CCD50020A848 /* libUMessage_Sdk_1.1.0.a */; };
+		DAA530721A00CE850020A848 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DAA530751A00CE850020A848 /* Localizable.strings */; };
+		DAA530731A00CE850020A848 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DAA530751A00CE850020A848 /* Localizable.strings */; };
 		DAC7C70F19D033C3001B4E27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC7C70E19D033C3001B4E27 /* main.m */; };
 		DAC7C71219D033C3001B4E27 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC7C71119D033C3001B4E27 /* AppDelegate.m */; };
 		DAC7C71519D033C3001B4E27 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC7C71419D033C3001B4E27 /* ViewController.m */; };
@@ -44,6 +46,8 @@
 		DAA530681A00CA790020A848 /* CustomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomViewController.m; sourceTree = "<group>"; };
 		DAA5306B1A00CCD50020A848 /* libUMessage_Sdk_1.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.1.0.a; sourceTree = "<group>"; };
 		DAA5306C1A00CCD50020A848 /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
+		DAA530741A00CE850020A848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DAA530761A00CEEE0020A848 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		DAC7C70919D033C3001B4E27 /* FeedbackDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedbackDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC7C70D19D033C3001B4E27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAC7C70E19D033C3001B4E27 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 		DAC7C70C19D033C3001B4E27 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DAA530751A00CE850020A848 /* Localizable.strings */,
 				DAC7C70D19D033C3001B4E27 /* Info.plist */,
 				DA4397A119D13AB900BC40A4 /* FeedbackDemo-Prefix.pch */,
 				DAC7C70E19D033C3001B4E27 /* main.m */,
@@ -226,6 +231,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = DAC7C70019D033C3001B4E27;
 			productRefGroup = DAC7C70A19D033C3001B4E27 /* Products */;
@@ -243,6 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAA530731A00CE850020A848 /* Localizable.strings in Resources */,
 				DA4397B219D13C7E00BC40A4 /* Main.storyboard in Resources */,
 				DA4397D219D1496600BC40A4 /* Default-568h@2x.png in Resources */,
 				DA4397B719D13C7E00BC40A4 /* LaunchScreen.xib in Resources */,
@@ -255,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAC7C71D19D033C3001B4E27 /* LaunchScreen.xib in Resources */,
+				DAA530721A00CE850020A848 /* Localizable.strings in Resources */,
 				DAC7C71A19D033C3001B4E27 /* Images.xcassets in Resources */,
 				DA4397CE19D1484A00BC40A4 /* Default-568h@2x.png in Resources */,
 			);
@@ -300,6 +308,15 @@
 				DA4397B619D13C7E00BC40A4 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		DAA530751A00CE850020A848 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DAA530741A00CE850020A848 /* Base */,
+				DAA530761A00CEEE0020A848 /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		DAC7C71B19D033C3001B4E27 /* LaunchScreen.xib */ = {
