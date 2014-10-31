@@ -6,6 +6,25 @@
   <meta name="generator" content="pandoc" />
   <title></title>
   <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
   <style>
   body {
     font-family: Helvetica, arial, sans-serif;
@@ -297,29 +316,31 @@
 <div id="TOC">
 <ul>
 <li><a href="#介绍"><span class="toc-section-number">1</span> 介绍</a></li>
-<li><a href="#基本使用"><span class="toc-section-number">2</span> 基本使用</a><ul>
-<li><a href="#集成"><span class="toc-section-number">2.1</span> 集成</a></li>
-<li><a href="#显示反馈界面"><span class="toc-section-number">2.2</span> 显示反馈界面</a></li>
+<li><a href="#基本功能集成指南"><span class="toc-section-number">2</span> 基本功能集成指南</a><ul>
+<li><a href="#安装用户反馈sdk"><span class="toc-section-number">2.1</span> 安装用户反馈SDK</a><ul>
+<li><a href="#自动安装"><span class="toc-section-number">2.1.1</span> 自动安装</a></li>
+<li><a href="#手动安装"><span class="toc-section-number">2.1.2</span> 手动安装</a></li>
+</ul></li>
+<li><a href="#设置app-key相关"><span class="toc-section-number">2.2</span> 设置App Key相关</a></li>
+<li><a href="#显示反馈界面"><span class="toc-section-number">2.3</span> 显示反馈界面</a></li>
 </ul></li>
 <li><a href="#开启消息推送功能"><span class="toc-section-number">3</span> 开启消息推送功能</a><ul>
 <li><a href="#集成友盟消息推送组件"><span class="toc-section-number">3.1</span> 集成友盟消息推送组件</a></li>
 <li><a href="#添加消息推送代码"><span class="toc-section-number">3.2</span> 添加消息推送代码</a></li>
-<li><a href="#didregisterforremotenotificationswithdevicetoken中设置umeng_feedback-alias"><span class="toc-section-number">3.3</span> didRegisterForRemoteNotificationsWithDeviceToken中设置umeng_feedback alias：</a></li>
-<li><a href="#didreceiveremotenotification中处理消息默认动作点击进入消息详情页"><span class="toc-section-number">3.4</span> didReceiveRemoteNotification中处理消息（默认动作：点击进入消息详情页）</a></li>
 </ul></li>
 <li><a href="#使用自定义反馈界面"><span class="toc-section-number">4</span> 使用自定义反馈界面</a><ul>
 <li><a href="#voidget"><span class="toc-section-number">4.1</span> -(void)get</a></li>
 <li><a href="#voidpost"><span class="toc-section-number">4.2</span> -(void)post:</a></li>
 </ul></li>
-<li><a href="#相比旧版本的变化"><span class="toc-section-number">5</span> 相比旧版本的变化</a><ul>
-<li><a href="#内置反馈界面由html变为native删除umfeedback.bundle资源文件"><span class="toc-section-number">5.1</span> - 内置反馈界面由HTML变为Native，删除umFeedback.bundle资源文件</a></li>
-</ul></li>
+<li><a href="#相比旧版本的变化"><span class="toc-section-number">5</span> 相比旧版本的变化</a></li>
 <li><a href="#技术支持"><span class="toc-section-number">6</span> 技术支持</a></li>
 </ul>
 </div>
 <h1 id="介绍"><a href="#介绍"><span class="header-section-number">1</span> 介绍</a></h1>
 <p>友盟用户反馈组件让您及时而方便地获取用户的反馈信息。</p>
-<p>内容清单：</p>
+<p>本SDK版本为2.0，操作系统最低支持版本为iOS 5.0，用户反馈界面如下：</p>
+<p>feedback_screenshot.png</p>
+<p><a id="content-list" name="content-list"></a>内容清单：</p>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -411,95 +432,120 @@ Swift演示工程
 </tbody>
 </table>
 
-<h1 id="基本使用"><a href="#基本使用"><span class="header-section-number">2</span> 基本使用</a></h1>
-<h2 id="集成"><a href="#集成"><span class="header-section-number">2.1</span> 集成</a></h2>
-<p>建议使用 <a href="http://cocoapods.org/">CocoaPods</a> 来集成：</p>
-<pre><code>pod &#39;UMengFeedback&#39;, &#39;~&gt; 2.0&#39;</code></pre>
+<h1 id="基本功能集成指南"><a href="#基本功能集成指南"><span class="header-section-number">2</span> 基本功能集成指南</a></h1>
+<h2 id="安装用户反馈sdk"><a href="#安装用户反馈sdk"><span class="header-section-number">2.1</span> 安装用户反馈SDK</a></h2>
+<h3 id="自动安装"><a href="#自动安装"><span class="header-section-number">2.1.1</span> 自动安装</a></h3>
+<p><a href="http://cocoapods.org/">CocoaPods</a> 是开发 OS X 和 iOS 应用程序的一个第三方库的依赖管理工具。利用 CocoaPods，可以自动化安装第三方库。</p>
+<p>建议使用 <a href="http://cocoapods.org/">CocoaPods</a> 来自动化安装：</p>
+<p>在Podfile中增加一行，内容如下：</p>
+<pre class="sh"><code>pod &#39;UMengFeedback&#39;, &#39;~&gt; 2.0&#39;</code></pre>
+<p>然后执行安装：</p>
+<pre class="sh"><code>pod install</code></pre>
+<h3 id="手动安装"><a href="#手动安装"><span class="header-section-number">2.1.2</span> 手动安装</a></h3>
 <p>也可以使用传统集成方式：</p>
-<p>下载 <a href="http://dev.umeng.com/files/download/UMFeedback_iOS_2.0.zip">SDK最新版</a>， 把 <strong>libUMFeedback.a</strong> ， <strong>UMFeedback.h</strong> 加入工程。</p>
-<h2 id="显示反馈界面"><a href="#显示反馈界面"><span class="header-section-number">2.2</span> 显示反馈界面</a></h2>
+<p>下载 <a href="http://dev.umeng.com/files/download/UMFeedback_iOS_2.0.zip">iOS SDK</a>， 解压缩后得到 内容清单 所述文件，把 <strong>UMengFeedback_SDK_2.0</strong> 文件夹拖入Xcode项目工程中：</p>
+<h2 id="设置app-key相关"><a href="#设置app-key相关"><span class="header-section-number">2.2</span> 设置App Key相关</a></h2>
+<p>在 <strong>AppDelegate.m</strong> 文件中，导入SDK头文件</p>
+<pre class="objective-c"><code>#import &quot;UMFeedback.h&quot;</code></pre>
+<p>在 <strong>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions</strong> 中，设置App Key：</p>
+<pre class="objective-c"><code>[UMFeedback setAppKey:@&quot;5425495dfd98c594860045ed&quot;];</code></pre>
+<h2 id="显示反馈界面"><a href="#显示反馈界面"><span class="header-section-number">2.3</span> 显示反馈界面</a></h2>
+<p>在需要进入反馈界面的ViewController中，首先导入SDK头文件：</p>
+<pre class="objective-c"><code>#import &quot;UMFeedback.h&quot;</code></pre>
+<p>在需要显示反馈界面的事件中调用如下代码来呼出反馈界面：</p>
 <ul>
-<li><p>以导航窗口显示：</p>
-[self.navigationController pushViewController:[UMFeedback feedbackViewController] animated:YES];</li>
-<li><p>以模态窗口显示：</p>
-<p>[self presentModalViewController:[UMFeedback feedbackModalViewController] animated:YES];</p></li>
+<li>以导航窗口显示（前提是当前ViewController是导航窗口）：</li>
 </ul>
+<pre class="sourceCode c"><code class="sourceCode c">[self.navigationController pushViewController:[UMFeedback feedbackViewController]
+                     animated:YES];</code></pre>
+<ul>
+<li>以模态窗口显示：</li>
+</ul>
+<pre class="sourceCode c"><code class="sourceCode c">[self presentModalViewController:[UMFeedback feedbackModalViewController]
+            animated:YES];</code></pre>
 <p>注意上述两者的区别在于获取用户反馈界面的ViewController的不同： 前者是 <strong>[UMFeedback feedbackViewController]</strong> ，</p>
 <p>而后者是 <strong>[UMFeedback feedbackModalViewController]</strong></p>
 <h1 id="开启消息推送功能"><a href="#开启消息推送功能"><span class="header-section-number">3</span> 开启消息推送功能</a></h1>
-<p>开启消息推送需要使用 <strong>友盟消息推送</strong> 组件。</p>
+<p>开启消息推送需要使用 <a href="http://dev.umeng.com/message/ios/integration-guide">友盟消息推送</a> 组件，并配置好APNs服务。</p>
 <h2 id="集成友盟消息推送组件"><a href="#集成友盟消息推送组件"><span class="header-section-number">3.1</span> 集成友盟消息推送组件</a></h2>
 <p>使用CocoaPods来集成：</p>
-<pre><code>pod &#39;UMengMessage&#39;, &#39;~&gt; 1.1.0.1&#39;</code></pre>
-<p>或者使用传统方式来集成 下载 <a href="http://dev.umeng.com/enquiry/get_sdk_download?platform=iOS&amp;sdk_type=message">SDK最新版(含IDFA)</a> 或<a href="http://dev.umeng.com/system/resources/W1siZiIsIjIwMTQvMTAvMjEvMTJfNDlfMjJfMjAyX1VNZXNzYWdlX1Nka19BbGxfMS4xLjAuemlwIl1d/UMessage_Sdk_All_1.1.0.zip">SDK最新版(不含IDFA)</a>， 解压缩后把形如 <strong>UMessage_Sdk_x.x.x</strong> 的文件夹加入到工程中。</p>
+<pre class="shell"><code>pod &#39;UMengMessage&#39;, &#39;~&gt; 1.1.0.1&#39;</code></pre>
+<p>或者使用传统方式来集成：</p>
+<p>下载 <a href="http://dev.umeng.com/enquiry/get_sdk_download?platform=iOS&amp;sdk_type=message">SDK最新版(含IDFA)</a> 或<a href="http://dev.umeng.com/system/resources/W1siZiIsIjIwMTQvMTAvMjEvMTJfNDlfMjJfMjAyX1VNZXNzYWdlX1Nka19BbGxfMS4xLjAuemlwIl1d/UMessage_Sdk_All_1.1.0.zip">SDK最新版(不含IDFA)</a>， 解压缩后把形如 <strong>UMessage_Sdk_x.x.x</strong> 的文件夹加入到工程中。具体参见 <a href="http://dev.umeng.com/message/ios/integration-guide">iOS 消息推送 (Message) SDK使用指南</a></p>
 <h2 id="添加消息推送代码"><a href="#添加消息推送代码"><span class="header-section-number">3.2</span> 添加消息推送代码</a></h2>
 <p>方便起见，先定义一些OS版本检测的宏：</p>
-<pre><code>#define IOS_7_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] &gt;= 7.0)
-#define IOS_8_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] &gt;= 8.0)
-
- if (IOS_8_OR_LATER) {
-     //register remoteNotification types
+<pre class="sourceCode c"><code class="sourceCode c"><span class="ot">#define IOS_7_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] &gt;= 7.0)</span>
+<span class="ot">#define IOS_8_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] &gt;= 8.0)</span></code></pre>
+<ol style="list-style-type: decimal">
+<li>在 <strong>didFinishLaunchingWithOptions</strong> 函数中添加推送设置代码如下：</li>
+</ol>
+<pre class="sourceCode c"><code class="sourceCode c"> <span class="kw">if</span> (IOS_8_OR_LATER) {
+     <span class="co">//register remoteNotification types</span>
      UIMutableUserNotificationAction *action1 = [[UIMutableUserNotificationAction alloc] init];
-     action1.identifier = @&quot;action1_identifier&quot;;
-     action1.title=@&quot;Accept&quot;;
-     action1.activationMode = UIUserNotificationActivationModeForeground;//当点击的时候启动程序
+     action1.identifier = @<span class="st">&quot;action1_identifier&quot;</span>;
+     action1.title=@<span class="st">&quot;Accept&quot;</span>;
+     action1.activationMode = UIUserNotificationActivationModeForeground;<span class="co">//当点击的时候启动程序</span>
 
-     UIMutableUserNotificationAction *action2 = [[UIMutableUserNotificationAction alloc] init];  //第二按钮
-     action2.identifier = @&quot;action2_identifier&quot;;
-     action2.title=@&quot;Reject&quot;;
-     action2.activationMode = UIUserNotificationActivationModeBackground;//当点击的时候不启动程序，在后台处理
-     action2.authenticationRequired = YES;//需要解锁才能处理，如果action.activationMode = UIUserNotificationActivationModeForeground;则这个属性被忽略；
+     UIMutableUserNotificationAction *action2 = [[UIMutableUserNotificationAction alloc] init];  <span class="co">//第二按钮</span>
+     action2.identifier = @<span class="st">&quot;action2_identifier&quot;</span>;
+     action2.title=@<span class="st">&quot;Reject&quot;</span>;
+     action2.activationMode = UIUserNotificationActivationModeBackground;<span class="co">//当点击的时候不启动程序，在后台处理</span>
+     action2.authenticationRequired = YES;<span class="co">//需要解锁才能处理，如果action.activationMode = UIUserNotificationActivationModeForeground;则这个属性被忽略；</span>
      action2.destructive = YES;
 
      UIMutableUserNotificationCategory *categorys = [[UIMutableUserNotificationCategory alloc] init];
-     categorys.identifier = @&quot;category1&quot;;//这组动作的唯一标示
+     categorys.identifier = @<span class="st">&quot;category1&quot;</span>;<span class="co">//这组动作的唯一标示</span>
      [categorys setActions:@[action1,action2] forContext:(UIUserNotificationActionContextDefault)];
 
      UIUserNotificationSettings *userSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge|UIUserNotificationTypeSound|UIUserNotificationTypeAlert
-                                                                                  categories:[NSSet setWithObject:categorys]];
+                                          categories:[NSSet setWithObject:categorys]];
 
      [UMessage registerRemoteNotificationAndUserNotificationSettings:userSettings];
- } else {
+ } <span class="kw">else</span> {
      [UMessage registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge |
-                                                  UIRemoteNotificationTypeSound |
-                                                  UIRemoteNotificationTypeAlert];
+                          UIRemoteNotificationTypeSound |
+                          UIRemoteNotificationTypeAlert];
  }
   [UMessage setLogEnabled:NO];
 
-//关闭状态时点击反馈消息进入反馈页
+<span class="co">//关闭状态时点击反馈消息进入反馈页</span>
  NSDictionary *notificationDict = [launchOptions valueForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
  [UMFeedback didReceiveRemoteNotification:notificationDict];</code></pre>
-<h2 id="didregisterforremotenotificationswithdevicetoken中设置umeng_feedback-alias"><a href="#didregisterforremotenotificationswithdevicetoken中设置umeng_feedback-alias"><span class="header-section-number">3.3</span> didRegisterForRemoteNotificationsWithDeviceToken中设置umeng_feedback alias：</a></h2>
-<pre><code>- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+<ol style="list-style-type: decimal">
+<li>在 <strong>didRegisterForRemoteNotificationsWithDeviceToken</strong> 中设置umeng_feedback alias：</li>
+</ol>
+<pre class="sourceCode c"><code class="sourceCode c">- (<span class="dt">void</span>)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     [UMessage registerDeviceToken:deviceToken];
-    NSLog(@&quot;umeng message alias is: %@&quot;, [UMFeedback uuid]);
-    [UMessage addAlias:[UMFeedback uuid] type:@&quot;umeng_feedback&quot; response:^(id responseObject, NSError *error) {
-        if (error != nil) {
-            NSLog(@&quot;%@&quot;, error);
-            NSLog(@&quot;%@&quot;, responseObject);
-        }
+    NSLog(@<span class="st">&quot;umeng message alias is: %@&quot;</span>, [UMFeedback uuid]);
+    [UMessage addAlias:[UMFeedback uuid] type:@<span class="st">&quot;umeng_feedback&quot;</span> response:^(id responseObject, NSError *error) {
+    <span class="kw">if</span> (error != nil) {
+        NSLog(@<span class="st">&quot;%@&quot;</span>, error);
+        NSLog(@<span class="st">&quot;%@&quot;</span>, responseObject);
+    }
     }];
 }</code></pre>
-<h2 id="didreceiveremotenotification中处理消息默认动作点击进入消息详情页"><a href="#didreceiveremotenotification中处理消息默认动作点击进入消息详情页"><span class="header-section-number">3.4</span> didReceiveRemoteNotification中处理消息（默认动作：点击进入消息详情页）</a></h2>
-<pre><code>- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-//    [UMessage didReceiveRemoteNotification:userInfo];
+<ol style="list-style-type: decimal">
+<li>在 <strong>didReceiveRemoteNotification</strong> 中处理消息（默认动作：点击进入消息详情页）</li>
+</ol>
+<pre class="sourceCode c"><code class="sourceCode c">- (<span class="dt">void</span>)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+<span class="co">//    [UMessage didReceiveRemoteNotification:userInfo];</span>
     [UMFeedback didReceiveRemoteNotification:userInfo];
 }</code></pre>
 <h1 id="使用自定义反馈界面"><a href="#使用自定义反馈界面"><span class="header-section-number">4</span> 使用自定义反馈界面</a></h1>
-<pre><code>@property (strong, nonatomic) UMFeedback *feedback;
+<pre class="sourceCode c"><code class="sourceCode c">@property (strong, nonatomic) UMFeedback *feedback;
 
 self.feedback = [UMFeedback sharedInstance];
 self.feedback.delegate = self;
 [self.feedback get];</code></pre>
 <p>数据接口有2个: get,post: 用于完成收取、发送。</p>
 <h2 id="voidget"><a href="#voidget"><span class="header-section-number">4.1</span> -(void)get</a></h2>
-<p>****get**** 方法获取最新的用户反馈数据，异步方法，需要实现 ****getFinishedWithError:**** delegate来完成回调。</p>
-<p>如果 ****error**** 为 ****nil**** 表示 ****get**** 正确完成，取实例的 ****topicAndReplies**** 属性即可获取最新的用户反馈数据。 常见的场景是当error 为nil时刷新UITableView。</p>
+<p><strong>get</strong> 方法获取最新的用户反馈数据，异步方法，需要实现 <strong>getFinishedWithError:</strong> delegate来完成回调。</p>
+<p>如果 <strong>error</strong> 为 <strong>nil</strong> 表示 <strong>get</strong> 正确完成，取实例的 <strong>topicAndReplies</strong> 属性即可获取最新的用户反馈数据。 常见的场景是当error 为nil时刷新UITableView。</p>
 <p>topicAndReplies 为NSMutableArray，第一项为 topic,既用户发表的第一条主题，其余项为Replies,包括开发者回复的和用户回复的。两者的区别在type字段。</p>
-<pre><code>if ([reply[@&quot;type&quot;] isEqualToString:@&quot;dev_reply&quot;]){
-    NSLog(@&quot;开发者回复&quot;);
-}else{
-    NSLog(@&quot;用户回复&quot;);
+<pre class="sourceCode c"><code class="sourceCode c"><span class="kw">if</span> ([reply[@<span class="st">&quot;type&quot;</span>] isEqualToString:@<span class="st">&quot;dev_reply&quot;</span>]){
+    NSLog(@<span class="st">&quot;开发者回复&quot;</span>);
+}<span class="kw">else</span>{
+    NSLog(@<span class="st">&quot;用户回复&quot;</span>);
 }</code></pre>
 <h2 id="voidpost"><a href="#voidpost"><span class="header-section-number">4.2</span> -(void)post:</a></h2>
 <p>post 方法发布用户反馈，异步方法，需要实现postFinishedWithError: delegate来完成回调。 用户发第一条主题和以后的回复都是使用post方法。</p>
@@ -507,12 +553,224 @@ self.feedback.delegate = self;
 <p>常见的场景是当error 为nil时告知用户发送成功。</p>
 <p>post参数为NSDictionary *类型,其中可以包含的字段和说明见下面描述,其中contact和remark字段为自定义字段，用户可以传递自定义的内容。</p>
 <p>feedback_dictionary 包含的有效key、含义、类型、取值如下：</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">
+键名
+</th>
+<th scope="col" class="left">
+含义
+</th>
+<th scope="col" class="left">
+类型
+</th>
+<th scope="col" class="left">
+取值说明
+</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="left">
+gender
+</td>
+<td class="left">
+性别
+</td>
+<td class="left">
+NSString
+</td>
+<td class="left">
+&quot;1&quot;或&quot;male&quot;为男 &quot;0&quot;或&quot;female&quot; 为女
+</td>
+</tr>
+
+
+<tr>
+<td class="left">
+age_group
+</td>
+<td class="left">
+年龄段
+</td>
+<td class="left">
+NSString
+</td>
+<td class="left">
+&quot;1&quot;…&quot;8&quot;,对应表如下
+</td>
+</tr>
+
+
+<tr>
+<td class="left">
+content
+</td>
+<td class="left">
+反馈内容
+</td>
+<td class="left">
+NSString
+</td>
+<td class="left">
+长度不应超过255个字符
+</td>
+</tr>
+
+
+<tr>
+<td class="left">
+remark
+</td>
+<td class="left">
+备注
+</td>
+<td class="left">
+NSDictionary
+</td>
+<td class="left">
+可以存放自定义的内容，比如评分等
+</td>
+</tr>
+
+
+<tr>
+<td class="left">
+contact
+</td>
+<td class="left">
+联系方式
+</td>
+<td class="left">
+NSDictionary
+</td>
+<td class="left">
+可以存放和用户信息相关的内容，比如用户名等
+</td>
+</tr>
+</tbody>
+</table>
+
+<p>&quot;remark&quot;和&quot;contact&quot;两个字段可供开发者传入自定义内容，这些内容会在网页上展现.</p>
+<p>&quot;age_group&quot; 取值和年龄段对照表</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left">
+&quot;1&quot;
+</td>
+<td class="left">
+小于18岁
+</td>
+</tr>
+
+
+<tr>
+<td class="left">
+&quot;2&quot;
+</td>
+<td class="left">
+18～24岁
+</td>
+</tr>
+
+
+<tr>
+<td class="left">
+&quot;3&quot;
+</td>
+<td class="left">
+25～30岁
+</td>
+</tr>
+
+
+<tr>
+<td class="left">
+&quot;4&quot;
+</td>
+<td class="left">
+31～35岁
+</td>
+</tr>
+
+
+<tr>
+<td class="left">
+&quot;5&quot;
+</td>
+<td class="left">
+36～40岁
+</td>
+</tr>
+
+
+<tr>
+<td class="left">
+&quot;6&quot;
+</td>
+<td class="left">
+41～50岁
+</td>
+</tr>
+
+
+<tr>
+<td class="left">
+&quot;7&quot;
+</td>
+<td class="left">
+51～59岁
+</td>
+</tr>
+
+
+<tr>
+<td class="left">
+&quot;8&quot;
+</td>
+<td class="left">
+大于60岁
+</td>
+</tr>
+</tbody>
+</table>
+
 <h1 id="相比旧版本的变化"><a href="#相比旧版本的变化"><span class="header-section-number">5</span> 相比旧版本的变化</a></h1>
-<h2 id="内置反馈界面由html变为native删除umfeedback.bundle资源文件"><a href="#内置反馈界面由html变为native删除umfeedback.bundle资源文件"><span class="header-section-number">5.1</span> - 内置反馈界面由HTML变为Native，删除umFeedback.bundle资源文件</a></h2>
+<ul>
+<li>内置反馈界面由HTML变为Native，删除umFeedback.bundle资源文件</li>
+<li>老用户仍可继续使用但不建议使用的函数有：</li>
+</ul>
+<pre class="sourceCode c"><code class="sourceCode c">+ (<span class="dt">void</span>)showFeedback:(UIViewController *)viewController withAppkey:(NSString *)appKey;
++ (<span class="dt">void</span>)showFeedback:(UIViewController *)viewController withAppkey:(NSString *)appKey dictionary:(NSDictionary *)dictionary;
++ (<span class="dt">void</span>)checkWithAppkey:(NSString *)appkey;
+- (<span class="dt">void</span>)setAppkey:(NSString *)appKey delegate:(id&lt;UMFeedbackDataDelegate&gt;)newDelegate;</code></pre>
 <h1 id="技术支持"><a href="#技术支持"><span class="header-section-number">6</span> 技术支持</a></h1>
-<p>论坛: <a href="http://bbs.umeng.com/forum-feedback-1.html">友盟开发者社区</a></p>
-<p>QQ: 800083942</p>
-<p>Email：<a href="support@umeng.com">support@umeng.com</a></p>
+<ul>
+<li>论坛: <a href="http://bbs.umeng.com/forum-feedback-1.html">友盟开发者社区-用户反馈</a></li>
+<li>QQ: 800083942</li>
+<li>Email：<a href="feedback-support@umeng.com">feedback-support@umeng.com</a></li>
+</ul>
 <p>为了能够尽快响应您的反馈，请提供您的appkey及logcat中的详细出错日志，您所提供的内容越详细越有助于我们帮您解决问题。</p>
 </body>
 </html>

@@ -10,7 +10,7 @@
 
 #import "ViewController.h"
 #import "UMFeedback.h"
-#import "UMessage.h"
+#import "UMessage_Sdk_1.1.0/UMessage.h"
 
 #define APPKEY @"5425495dfd98c594860045ed"
 
