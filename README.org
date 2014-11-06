@@ -1,0 +1,236 @@
+#+TITLE: 友盟用户反馈演示
+#+AUTHOR: amoblin
+#+EMAIL: amoblin@gmail.com
+#+DATE: <2014-10-22 11:44:57>
+#+OPTIONS: ^:{} toc:nil
+
+友盟用户反馈主页： http://dev.umeng.com/feedback/ios/quick-start
+* 介绍
+友盟用户反馈组件让您及时而方便地获取用户的反馈信息。
+
+本SDK版本为2.0，操作系统最低支持版本为iOS 5.0，用户反馈界面如下：
+
+[[http://dev.umeng.com/files/download/FF12349C253116FA7E3F27C091AEE852.png]]
+
+<<content-list>>内容清单：
+
+| 文件(夹)名称             | 介绍                |
+|--------------------------+---------------------|
+| 开发指南.html            | 本文档              |
+| 更新日志.html            | 更新日志            |
+| UMengFeedback_SDK_2.0/   | 友盟用户反馈组件    |
+| UMengFeedback_Sdk_1.1.0/ | 友盟消息推送组件    |
+| FeedbackDemo.xcodeproj   | 演示工程（入口）    |
+| FeedbackDemo             | Objective-C演示工程 |
+| SwiftDemo                | Swift演示工程           |
+
+* 基本功能集成指南
+** 安装用户反馈SDK
+*** 自动安装
+[[http://cocoapods.org/][CocoaPods]] 是开发 OS X 和 iOS 应用程序的一个第三方库的依赖管理工具。利用 CocoaPods，可以自动化安装第三方库。
+
+建议使用 [[http://cocoapods.org/][CocoaPods]] 来自动化安装：
+
+在Podfile中增加一行，内容如下：
+#+BEGIN_SRC sh
+pod 'UMengFeedback', '~> 2.0'
+#+END_SRC
+
+然后执行安装：
+
+#+BEGIN_SRC sh
+pod install
+#+END_SRC
+
+*** 手动安装
+也可以使用传统集成方式：
+
+下载 [[http://dev.umeng.com/files/download/UMFeedback_iOS_2.0.zip][iOS SDK ]]， 解压缩后得到 [[content-list][内容清单]] 所述文件，把 *UMengFeedback_SDK_2.0* 文件夹拖入Xcode项目工程中：
+** 设置App Key相关
+在 *AppDelegate.m* 文件中，导入SDK头文件
+#+BEGIN_SRC objective-c
+#import "UMFeedback.h"
+#+END_SRC
+
+在 *- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions* 中，设置App Key：
+#+BEGIN_SRC objective-c
+[UMFeedback setAppKey:@"5425495dfd98c594860045ed"];
+#+END_SRC
+
+** 显示反馈界面
+在需要进入反馈界面的ViewController中，首先导入SDK头文件：
+#+BEGIN_SRC objective-c
+#import "UMFeedback.h"
+#+END_SRC
+
+在需要显示反馈界面的事件中调用如下代码来呼出反馈界面：
+
+- 以导航窗口显示（前提是当前ViewController是导航窗口）：
+
+#+BEGIN_SRC c
+[self.navigationController pushViewController:[UMFeedback feedbackViewController]
+                                     animated:YES];
+#+END_SRC
+
+- 以模态窗口显示：
+
+#+BEGIN_SRC c
+[self presentModalViewController:[UMFeedback feedbackModalViewController]
+                        animated:YES];
+#+END_SRC
+
+注意上述两者的区别在于获取用户反馈界面的ViewController的不同：
+前者是 *[UMFeedback feedbackViewController]* ，
+
+而后者是 *[UMFeedback feedbackModalViewController]*
+
+* 开启消息推送功能
+开启消息推送需要使用 [[http://dev.umeng.com/message/ios/integration-guide][友盟消息推送]] 组件，并配置好APNs服务。
+** 集成友盟消息推送组件
+使用CocoaPods来集成：
+
+#+BEGIN_SRC shell
+pod 'UMengMessage', '~> 1.1.0.1'
+#+END_SRC
+
+或者使用传统方式来集成：
+
+下载 [[http://dev.umeng.com/enquiry/get_sdk_download?platform=iOS&sdk_type=message][SDK最新版(含IDFA)]] 或[[http://dev.umeng.com/system/resources/W1siZiIsIjIwMTQvMTAvMjEvMTJfNDlfMjJfMjAyX1VNZXNzYWdlX1Nka19BbGxfMS4xLjAuemlwIl1d/UMessage_Sdk_All_1.1.0.zip][SDK最新版(不含IDFA)]]， 解压缩后把形如 *UMessage_Sdk_x.x.x* 的文件夹加入到工程中。具体参见 [[http://dev.umeng.com/message/ios/integration-guide][iOS 消息推送 (Message) SDK使用指南]]
+
+** 添加消息推送代码
+
+方便起见，先定义一些OS版本检测的宏：
+#+BEGIN_SRC c
+#define IOS_7_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
+#define IOS_8_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+#+END_SRC
+
+1. 在 *didFinishLaunchingWithOptions* 函数中添加推送设置代码如下：
+
+#+BEGIN_SRC c
+    if (IOS_8_OR_LATER) {
+        //register remoteNotification types
+        UIMutableUserNotificationAction *action1 = [[UIMutableUserNotificationAction alloc] init];
+        action1.identifier = @"action1_identifier";
+        action1.title=@"Accept";
+        action1.activationMode = UIUserNotificationActivationModeForeground;//当点击的时候启动程序
+        
+        UIMutableUserNotificationAction *action2 = [[UIMutableUserNotificationAction alloc] init];  //第二按钮
+        action2.identifier = @"action2_identifier";
+        action2.title=@"Reject";
+        action2.activationMode = UIUserNotificationActivationModeBackground;//当点击的时候不启动程序，在后台处理
+        action2.authenticationRequired = YES;//需要解锁才能处理，如果action.activationMode = UIUserNotificationActivationModeForeground;则这个属性被忽略；
+        action2.destructive = YES;
+        
+        UIMutableUserNotificationCategory *categorys = [[UIMutableUserNotificationCategory alloc] init];
+        categorys.identifier = @"category1";//这组动作的唯一标示
+        [categorys setActions:@[action1,action2] forContext:(UIUserNotificationActionContextDefault)];
+        
+        UIUserNotificationSettings *userSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge|UIUserNotificationTypeSound|UIUserNotificationTypeAlert
+                                                                                     categories:[NSSet setWithObject:categorys]];
+
+        [UMessage registerRemoteNotificationAndUserNotificationSettings:userSettings];
+    } else {
+        [UMessage registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge |
+                                                     UIRemoteNotificationTypeSound |
+                                                     UIRemoteNotificationTypeAlert];
+    }
+     [UMessage setLogEnabled:NO];
+
+   //关闭状态时点击反馈消息进入反馈页
+    NSDictionary *notificationDict = [launchOptions valueForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    [UMFeedback didReceiveRemoteNotification:notificationDict];
+#+END_SRC
+
+1. 在 *didRegisterForRemoteNotificationsWithDeviceToken* 中设置umeng_feedback alias：
+#+BEGIN_SRC c
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    [UMessage registerDeviceToken:deviceToken];
+    NSLog(@"umeng message alias is: %@", [UMFeedback uuid]);
+    [UMessage addAlias:[UMFeedback uuid] type:@"umeng_feedback" response:^(id responseObject, NSError *error) {
+        if (error != nil) {
+            NSLog(@"%@", error);
+            NSLog(@"%@", responseObject);
+        }
+    }];
+}
+#+END_SRC
+
+1. 在 *didReceiveRemoteNotification* 中处理消息（默认动作：点击进入消息详情页）
+#+BEGIN_SRC c
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+//    [UMessage didReceiveRemoteNotification:userInfo];
+    [UMFeedback didReceiveRemoteNotification:userInfo];
+}
+#+END_SRC
+* 使用自定义反馈界面
+#+BEGIN_SRC c
+@property (strong, nonatomic) UMFeedback *feedback;
+
+self.feedback = [UMFeedback sharedInstance];
+self.feedback.delegate = self;
+[self.feedback get];
+#+END_SRC
+
+数据接口有2个: get,post: 用于完成收取、发送。
+** -(void)get
+*get* 方法获取最新的用户反馈数据，异步方法，需要实现 *getFinishedWithError:* delegate来完成回调。
+
+如果 *error* 为 *nil* 表示 *get* 正确完成，取实例的 *topicAndReplies* 属性即可获取最新的用户反馈数据。 常见的场景是当error 为nil时刷新UITableView。
+
+topicAndReplies 为NSMutableArray，第一项为 topic,既用户发表的第一条主题，其余项为Replies,包括开发者回复的和用户回复的。两者的区别在type字段。
+#+BEGIN_SRC c
+if ([reply[@"type"] isEqualToString:@"dev_reply"]){
+    NSLog(@"开发者回复");
+}else{
+    NSLog(@"用户回复");
+}
+#+END_SRC
+**  -(void)post:
+post 方法发布用户反馈，异步方法，需要实现postFinishedWithError: delegate来完成回调。 用户发第一条主题和以后的回复都是使用post方法。
+
+如果error 为nil表示post正确完成。
+
+常见的场景是当error 为nil时告知用户发送成功。
+
+post参数为NSDictionary *类型,其中可以包含的字段和说明见下面描述,其中contact和remark字段为自定义字段，用户可以传递自定义的内容。
+
+feedback_dictionary 包含的有效key、含义、类型、取值如下：
+| 键名      | 含义     | 类型         | 取值说明                                   |
+|-----------+----------+--------------+--------------------------------------------|
+| gender    | 性别     | NSString     | "1"或"male"为男 "0"或"female" 为女         |
+| age_group | 年龄段   | NSString     | "1"..."8",对应表如下                       |
+| content   | 反馈内容 | NSString     | 长度不应超过255个字符                      |
+| remark    | 备注     | NSDictionary | 可以存放自定义的内容，比如评分等           |
+| contact   | 联系方式 | NSDictionary | 可以存放和用户信息相关的内容，比如用户名等 |
+
+
+"remark"和"contact"两个字段可供开发者传入自定义内容，这些内容会在网页上展现.
+
+"age_group" 取值和年龄段对照表
+
+| "1" | 小于18岁 |
+| "2" | 18～24岁 |
+| "3" | 25～30岁 |
+| "4" | 31～35岁 |
+| "5" | 36～40岁 |
+| "6" | 41～50岁 |
+| "7" | 51～59岁 |
+| "8" | 大于60岁 |
+
+* 相比旧版本的变化
+- 内置反馈界面由HTML变为Native，删除umFeedback.bundle资源文件
+- 老用户仍可继续使用但不建议使用的函数有：
+#+BEGIN_SRC c
++ (void)showFeedback:(UIViewController *)viewController withAppkey:(NSString *)appKey;
++ (void)showFeedback:(UIViewController *)viewController withAppkey:(NSString *)appKey dictionary:(NSDictionary *)dictionary;
++ (void)checkWithAppkey:(NSString *)appkey;
+- (void)setAppkey:(NSString *)appKey delegate:(id<UMFeedbackDataDelegate>)newDelegate;
+#+END_SRC
+* 技术支持
+- 论坛: [[http://bbs.umeng.com/forum-feedback-1.html][友盟开发者社区-用户反馈]]
+- QQ: [[qq://800083942][800083942]]
+- Email：[[mailto:feedback-support@umeng.com][feedback-support@umeng.com]]
+
+为了能够尽快响应您的反馈，请提供您的appkey及logcat中的详细出错日志，您所提供的内容越详细越有助于我们帮您解决问题。
+
