@@ -131,6 +131,7 @@
 - (void)feedbackButtonPressed:(UIButton *)sender {
     switch (sender.tag) {
         case 1:
+//            [[UMFeedback sharedInstance] setTitleColor:[UIColor blueColor]];
             [self.navigationController pushViewController:[UMFeedback feedbackViewController]
                                                  animated:YES];
             break;

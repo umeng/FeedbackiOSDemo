@@ -31,6 +31,7 @@
     
     ViewController *controller = [ViewController new];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+//    navController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
     self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
 
@@ -113,7 +114,7 @@
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     [UMessage registerDeviceToken:deviceToken];
     NSLog(@"umeng message alias is: %@", [UMFeedback uuid]);
-    [UMessage addAlias:[UMFeedback uuid] type:@"umeng_feedback" response:^(id responseObject, NSError *error) {
+    [UMessage addAlias:[UMFeedback uuid] type:[UMFeedback messageType] response:^(id responseObject, NSError *error) {
         if (error != nil) {
             NSLog(@"%@", error);
             NSLog(@"%@", responseObject);

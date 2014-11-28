@@ -5,7 +5,7 @@
 //  Created by ming hua on 2012-03-19.
 //  Updated by ming hua on 2013-04-17.
 //  Updated by cui guilin on 2014-09-12.
-//  Version 1.4
+//  Version 2.0
 //  Copyright (c) 2012年 umeng.com. All rights reserved.
 //
 
@@ -43,17 +43,17 @@
 /**
  *  UMFeedback Data Delegate
  */
-@property(nonatomic, unsafe_unretained) NSObject <UMFeedbackDataDelegate> *delegate;
+@property (nonatomic, unsafe_unretained) NSObject <UMFeedbackDataDelegate> *delegate;
 
 /**
  *  the new replies
  */
-@property(nonatomic, strong) NSMutableArray *theNewReplies;
+@property (nonatomic, strong) NSMutableArray *theNewReplies;
 
 /**
  *  the topic and replies
  */
-@property(nonatomic, strong) NSMutableArray *topicAndReplies;
+@property (nonatomic, strong) NSMutableArray *topicAndReplies;
 
 #pragma mark Settings
 
@@ -73,7 +73,18 @@
  */
 + (void)setAppkey:(NSString *)appkey;
 
+/**
+ *  User Id
+ *
+ *  @return <#return value description#>
+ */
 + (NSString *)uuid;
+
+/**
+ *  message type for UMessage alias message type
+ *
+ *  @return <#return value description#>
+ */
 + (NSString *)messageType;
 
 #pragma mark Show Feedback View
@@ -108,6 +119,11 @@
  *  get feedback replies from server
  */
 - (void)get;
+
+- (void)setBackButton:(UIButton *)button;
+
+// For iOS 7 and later
+- (void)setTitleColor:(UIColor *)color;
 
 /**
  *  post feedback repli to server
