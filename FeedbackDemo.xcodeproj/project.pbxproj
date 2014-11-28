@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DA357E171A038ACF007260CE /* UMFeedbackLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA357E121A038ACF007260CE /* UMFeedbackLocalizable.strings */; };
-		DA357E181A038ACF007260CE /* UMFeedbackLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA357E121A038ACF007260CE /* UMFeedbackLocalizable.strings */; };
-		DA357E191A038ACF007260CE /* libUMFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA357E141A038ACF007260CE /* libUMFeedback.a */; };
-		DA357E1A1A038ACF007260CE /* libUMFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA357E141A038ACF007260CE /* libUMFeedback.a */; };
 		DA4397AD19D13C7E00BC40A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4397AC19D13C7E00BC40A4 /* AppDelegate.swift */; };
 		DA4397AF19D13C7E00BC40A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4397AE19D13C7E00BC40A4 /* ViewController.swift */; };
 		DA4397B219D13C7E00BC40A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4397B019D13C7E00BC40A4 /* Main.storyboard */; };
@@ -28,13 +24,11 @@
 		DAC7C71519D033C3001B4E27 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC7C71419D033C3001B4E27 /* ViewController.m */; };
 		DAC7C71A19D033C3001B4E27 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAC7C71919D033C3001B4E27 /* Images.xcassets */; };
 		DAC7C71D19D033C3001B4E27 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC7C71B19D033C3001B4E27 /* LaunchScreen.xib */; };
+		DAFB22A01A2846B70039D0A9 /* UMFeedbackLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DAFB229B1A2846B70039D0A9 /* UMFeedbackLocalizable.strings */; };
+		DAFB22A11A2846B70039D0A9 /* libUMFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAFB229D1A2846B70039D0A9 /* libUMFeedback.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DA357E131A038ACF007260CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/UMFeedbackLocalizable.strings; sourceTree = "<group>"; };
-		DA357E141A038ACF007260CE /* libUMFeedback.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMFeedback.a; sourceTree = "<group>"; };
-		DA357E151A038ACF007260CE /* UMFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMFeedback.h; sourceTree = "<group>"; };
-		DA357E161A038ACF007260CE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/UMFeedbackLocalizable.strings"; sourceTree = "<group>"; };
 		DA4397A119D13AB900BC40A4 /* FeedbackDemo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FeedbackDemo-Prefix.pch"; sourceTree = "<group>"; };
 		DA4397A819D13C7D00BC40A4 /* SwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA4397AB19D13C7E00BC40A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,6 +55,10 @@
 		DAC7C71419D033C3001B4E27 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		DAC7C71919D033C3001B4E27 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DAC7C71C19D033C3001B4E27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		DAFB229C1A2846B70039D0A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/UMFeedbackLocalizable.strings; sourceTree = "<group>"; };
+		DAFB229D1A2846B70039D0A9 /* libUMFeedback.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMFeedback.a; sourceTree = "<group>"; };
+		DAFB229E1A2846B70039D0A9 /* UMFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMFeedback.h; sourceTree = "<group>"; };
+		DAFB229F1A2846B70039D0A9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/UMFeedbackLocalizable.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +66,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA357E1A1A038ACF007260CE /* libUMFeedback.a in Frameworks */,
 				DAA5306E1A00CCD50020A848 /* libUMessage_Sdk_1.1.0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -77,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA357E191A038ACF007260CE /* libUMFeedback.a in Frameworks */,
+				DAFB22A11A2846B70039D0A9 /* libUMFeedback.a in Frameworks */,
 				DAA5306D1A00CCD50020A848 /* libUMessage_Sdk_1.1.0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,16 +82,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DA357E111A038ACF007260CE /* UMengFeedback_SDK_2.0 */ = {
-			isa = PBXGroup;
-			children = (
-				DA357E121A038ACF007260CE /* UMFeedbackLocalizable.strings */,
-				DA357E141A038ACF007260CE /* libUMFeedback.a */,
-				DA357E151A038ACF007260CE /* UMFeedback.h */,
-			);
-			path = UMengFeedback_SDK_2.0;
-			sourceTree = "<group>";
-		};
 		DA4397A919D13C7E00BC40A4 /* SwiftDemo */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,7 +117,7 @@
 		DAC7C70019D033C3001B4E27 = {
 			isa = PBXGroup;
 			children = (
-				DA357E111A038ACF007260CE /* UMengFeedback_SDK_2.0 */,
+				DAFB229A1A2846B70039D0A9 /* UMengFeedback_SDK_2.0.1 */,
 				DAA5306A1A00CCD50020A848 /* UMessage_Sdk_1.1.0 */,
 				DAC7C70B19D033C3001B4E27 /* FeedbackDemo */,
 				DA4397A919D13C7E00BC40A4 /* SwiftDemo */,
@@ -173,6 +160,16 @@
 				DAC7C70E19D033C3001B4E27 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DAFB229A1A2846B70039D0A9 /* UMengFeedback_SDK_2.0.1 */ = {
+			isa = PBXGroup;
+			children = (
+				DAFB229B1A2846B70039D0A9 /* UMFeedbackLocalizable.strings */,
+				DAFB229D1A2846B70039D0A9 /* libUMFeedback.a */,
+				DAFB229E1A2846B70039D0A9 /* UMFeedback.h */,
+			);
+			path = UMengFeedback_SDK_2.0.1;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,7 +253,6 @@
 			files = (
 				DAA530731A00CE850020A848 /* Localizable.strings in Resources */,
 				DA4397B219D13C7E00BC40A4 /* Main.storyboard in Resources */,
-				DA357E181A038ACF007260CE /* UMFeedbackLocalizable.strings in Resources */,
 				DA4397D219D1496600BC40A4 /* Default-568h@2x.png in Resources */,
 				DA4397B719D13C7E00BC40A4 /* LaunchScreen.xib in Resources */,
 				DA4397B419D13C7E00BC40A4 /* Images.xcassets in Resources */,
@@ -268,7 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAC7C71D19D033C3001B4E27 /* LaunchScreen.xib in Resources */,
-				DA357E171A038ACF007260CE /* UMFeedbackLocalizable.strings in Resources */,
+				DAFB22A01A2846B70039D0A9 /* UMFeedbackLocalizable.strings in Resources */,
 				DAA530721A00CE850020A848 /* Localizable.strings in Resources */,
 				DAC7C71A19D033C3001B4E27 /* Images.xcassets in Resources */,
 				DA4397CE19D1484A00BC40A4 /* Default-568h@2x.png in Resources */,
@@ -301,15 +297,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DA357E121A038ACF007260CE /* UMFeedbackLocalizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DA357E131A038ACF007260CE /* Base */,
-				DA357E161A038ACF007260CE /* zh-Hans */,
-			);
-			name = UMFeedbackLocalizable.strings;
-			sourceTree = "<group>";
-		};
 		DA4397B019D13C7E00BC40A4 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -341,6 +328,15 @@
 				DAC7C71C19D033C3001B4E27 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		DAFB229B1A2846B70039D0A9 /* UMFeedbackLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DAFB229C1A2846B70039D0A9 /* Base */,
+				DAFB229F1A2846B70039D0A9 /* zh-Hans */,
+			);
+			name = UMFeedbackLocalizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -487,6 +483,7 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/UMengFeedback_SDK_2.0",
 					"$(PROJECT_DIR)/UMessage_Sdk_1.1.0",
+					"$(PROJECT_DIR)/UMengFeedback_SDK_2.0.1",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -506,6 +503,7 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/UMengFeedback_SDK_2.0",
 					"$(PROJECT_DIR)/UMessage_Sdk_1.1.0",
+					"$(PROJECT_DIR)/UMengFeedback_SDK_2.0.1",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
