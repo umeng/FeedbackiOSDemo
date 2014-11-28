@@ -330,7 +330,8 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </ul></li>
 <li><a href="#使用自定义反馈界面"><span class="toc-section-number">4</span> 使用自定义反馈界面</a><ul>
 <li><a href="#voidget"><span class="toc-section-number">4.1</span> -(void)get</a></li>
-<li><a href="#voidpost"><span class="toc-section-number">4.2</span> -(void)post:</a></li>
+<li><a href="#voidupdateuserinfonsdictionary-info"><span class="toc-section-number">4.2</span> -(void)updateUserInfo:(NSDictionary *)info</a></li>
+<li><a href="#voidpostnsdictionary-payload"><span class="toc-section-number">4.3</span> -(void)post:(NSDictionary *)payload</a></li>
 </ul></li>
 <li><a href="#相比旧版本的变化"><span class="toc-section-number">5</span> 相比旧版本的变化</a></li>
 <li><a href="#技术支持"><span class="toc-section-number">6</span> 技术支持</a></li>
@@ -340,98 +341,44 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>友盟用户反馈组件让您及时而方便地获取用户的反馈信息。</p>
 <p>本SDK版本为2.0，操作系统最低支持版本为iOS 5.0，用户反馈界面如下：</p>
 <p>feedback_screenshot.png</p>
-<p><a id="content-list" name="content-list"></a>内容清单：</p>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="left" />
-
-<col  class="left" />
-</colgroup>
+<table>
 <thead>
-<tr>
-<th scope="col" class="left">
-文件(夹)名称
-</th>
-<th scope="col" class="left">
-介绍
-</th>
+<tr class="header">
+<th align="left">文件(夹)名称</th>
+<th align="left">介绍</th>
 </tr>
 </thead>
-
 <tbody>
-<tr>
-<td class="left">
-开发指南.html
-</td>
-<td class="left">
-本文档
-</td>
+<tr class="odd">
+<td align="left">开发指南.html</td>
+<td align="left">本文档</td>
 </tr>
-
-
-<tr>
-<td class="left">
-更新日志.html
-</td>
-<td class="left">
-更新日志
-</td>
+<tr class="even">
+<td align="left">更新日志.html</td>
+<td align="left">更新日志</td>
 </tr>
-
-
-<tr>
-<td class="left">
-UMengFeedback_SDK_2.0/
-</td>
-<td class="left">
-友盟用户反馈组件
-</td>
+<tr class="odd">
+<td align="left">UMengFeedback_SDK_2.0/</td>
+<td align="left">友盟用户反馈组件</td>
 </tr>
-
-
-<tr>
-<td class="left">
-UMengFeedback_Sdk_1.1.0/
-</td>
-<td class="left">
-友盟消息推送组件
-</td>
+<tr class="even">
+<td align="left">UMengFeedback_Sdk_1.1.0/</td>
+<td align="left">友盟消息推送组件</td>
 </tr>
-
-
-<tr>
-<td class="left">
-FeedbackDemo.xcodeproj
-</td>
-<td class="left">
-演示工程（入口）
-</td>
+<tr class="odd">
+<td align="left">FeedbackDemo.xcodeproj</td>
+<td align="left">演示工程（入口）</td>
 </tr>
-
-
-<tr>
-<td class="left">
-FeedbackDemo
-</td>
-<td class="left">
-Objective-C演示工程
-</td>
+<tr class="even">
+<td align="left">FeedbackDemo</td>
+<td align="left">Objective-C演示工程</td>
 </tr>
-
-
-<tr>
-<td class="left">
-SwiftDemo
-</td>
-<td class="left">
-Swift演示工程
-</td>
+<tr class="odd">
+<td align="left">SwiftDemo</td>
+<td align="left">Swift演示工程</td>
 </tr>
 </tbody>
 </table>
-
 <h1 id="基本功能集成指南"><a href="#基本功能集成指南"><span class="header-section-number">2</span> 基本功能集成指南</a></h1>
 <h2 id="安装用户反馈sdk"><a href="#安装用户反馈sdk"><span class="header-section-number">2.1</span> 安装用户反馈SDK</a></h2>
 <h3 id="自动安装"><a href="#自动安装"><span class="header-section-number">2.1.1</span> 自动安装</a></h3>
@@ -471,7 +418,7 @@ Swift演示工程
 <p>使用CocoaPods来集成：</p>
 <pre class="shell"><code>pod &#39;UMengMessage&#39;, &#39;~&gt; 1.1.0.1&#39;</code></pre>
 <p>或者使用传统方式来集成：</p>
-<p>下载 <a href="http://dev.umeng.com/enquiry/get_sdk_download?platform=iOS&amp;sdk_type=message">SDK最新版(含IDFA)</a> 或<a href="http://dev.umeng.com/system/resources/W1siZiIsIjIwMTQvMTAvMjEvMTJfNDlfMjJfMjAyX1VNZXNzYWdlX1Nka19BbGxfMS4xLjAuemlwIl1d/UMessage_Sdk_All_1.1.0.zip">SDK最新版(不含IDFA)</a>， 解压缩后把形如 <strong>UMessage_Sdk_x.x.x</strong> 的文件夹加入到工程中。具体参见 <a href="http://dev.umeng.com/message/ios/integration-guide">iOS 消息推送 (Message) SDK使用指南</a></p>
+<p>下载 <a href="http://dev.umeng.com/enquiry/get_sdk_download?platform=iOS&amp;sdk_type=message">SDK最新版(含IDFA)</a> 或<a href="http://dev.umeng.com/system/resources/W1siZiIsIjIwMTQvMTAvMjEvMTJfNDlfMjJfMjAyX1VNZXNzYWdlX1Nka19BbGxfMS4xLjAuemlwIl1d/UMessage_Sdk_All_1.1.0.zip">SDK最新版(不含IDFA)</a>， 解压缩后把形如 <strong>UMessage_Sdk_x.x.x</strong> 的文件夹加入到工程中。在苹果开发者中心开启App消息推送，设置好推送秘钥，并上传到友盟消息推送后台。具体参见 <a href="http://dev.umeng.com/message/ios/integration-guide">iOS 消息推送 (Message) SDK使用指南</a></p>
 <h2 id="添加消息推送代码"><a href="#添加消息推送代码"><span class="header-section-number">3.2</span> 添加消息推送代码</a></h2>
 <p>方便起见，先定义一些OS版本检测的宏：</p>
 <pre class="sourceCode c"><code class="sourceCode c"><span class="ot">#define IOS_7_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] &gt;= 7.0)</span>
@@ -512,12 +459,12 @@ Swift演示工程
  NSDictionary *notificationDict = [launchOptions valueForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
  [UMFeedback didReceiveRemoteNotification:notificationDict];</code></pre>
 <ol style="list-style-type: decimal">
-<li>在 <strong>didRegisterForRemoteNotificationsWithDeviceToken</strong> 中设置umeng_feedback alias：</li>
+<li>在 <strong>didRegisterForRemoteNotificationsWithDeviceToken</strong> 中设置umeng_feedback alias（注意这里的alias参数和type参数都需要从UMFeedback获取，不能自行更改）：</li>
 </ol>
 <pre class="sourceCode c"><code class="sourceCode c">- (<span class="dt">void</span>)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     [UMessage registerDeviceToken:deviceToken];
     NSLog(@<span class="st">&quot;umeng message alias is: %@&quot;</span>, [UMFeedback uuid]);
-    [UMessage addAlias:[UMFeedback uuid] type:@<span class="st">&quot;umeng_feedback&quot;</span> response:^(id responseObject, NSError *error) {
+    [UMessage addAlias:[UMFeedback uuid] type:[UMFeedback messageType] response:^(id responseObject, NSError *error) {
     <span class="kw">if</span> (error != nil) {
         NSLog(@<span class="st">&quot;%@&quot;</span>, error);
         NSLog(@<span class="st">&quot;%@&quot;</span>, responseObject);
@@ -547,222 +494,91 @@ self.feedback.delegate = self;
 }<span class="kw">else</span>{
     NSLog(@<span class="st">&quot;用户回复&quot;</span>);
 }</code></pre>
-<h2 id="voidpost"><a href="#voidpost"><span class="header-section-number">4.2</span> -(void)post:</a></h2>
+<h2 id="voidupdateuserinfonsdictionary-info"><a href="#voidupdateuserinfonsdictionary-info"><span class="header-section-number">4.2</span> -(void)updateUserInfo:(NSDictionary *)info</a></h2>
+<p>payload字典实例如下，注意联系信息都放在 &quot;contact&quot; 这个键下面：</p>
+<pre class="sourceCode json"><code class="sourceCode json">{
+    <span class="dt">&quot;contact&quot;</span>: {
+    <span class="dt">&quot;email&quot;</span>: <span class="st">&quot;ios@umeng.com&quot;</span>,
+    <span class="dt">&quot;phone: &quot;</span><span class="er">1388888888</span><span class="dt">&quot;,</span>
+<span class="dt">    &quot;</span><span class="er">qq</span><span class="dt">&quot;: &quot;</span><span class="er">576147360</span><span class="dt">&quot;,</span>
+<span class="dt">    &quot;</span><span class="er">plain</span><span class="dt">&quot;: &quot;</span><span class="er">no</span> <span class="er">more</span> <span class="er">thing</span><span class="dt">&quot;</span>
+<span class="dt">    }</span>
+<span class="dt">}</span></code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">键名</th>
+<th align="left">含义</th>
+<th align="left">类型</th>
+<th align="left">取值说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">email</td>
+<td align="left">邮箱</td>
+<td align="left">NSString</td>
+<td align="left">用户输入的邮箱地址</td>
+</tr>
+<tr class="even">
+<td align="left">phone</td>
+<td align="left">手机号</td>
+<td align="left">NSString</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">qq</td>
+<td align="left">QQ号</td>
+<td align="left">NSString</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">plain</td>
+<td align="left">其他</td>
+<td align="left">NSString</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="voidpostnsdictionary-payload"><a href="#voidpostnsdictionary-payload"><span class="header-section-number">4.3</span> -(void)post:(NSDictionary *)payload</a></h2>
 <p>post 方法发布用户反馈，异步方法，需要实现postFinishedWithError: delegate来完成回调。 用户发第一条主题和以后的回复都是使用post方法。</p>
 <p>如果error 为nil表示post正确完成。</p>
 <p>常见的场景是当error 为nil时告知用户发送成功。</p>
-<p>post参数为NSDictionary *类型,其中可以包含的字段和说明见下面描述,其中contact和remark字段为自定义字段，用户可以传递自定义的内容。</p>
+<p>post参数为 <strong>NSDictionary *</strong> 类型，</p>
 <p>feedback_dictionary 包含的有效key、含义、类型、取值如下：</p>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="left" />
-
-<col  class="left" />
-
-<col  class="left" />
-
-<col  class="left" />
-</colgroup>
+<table>
 <thead>
-<tr>
-<th scope="col" class="left">
-键名
-</th>
-<th scope="col" class="left">
-含义
-</th>
-<th scope="col" class="left">
-类型
-</th>
-<th scope="col" class="left">
-取值说明
-</th>
+<tr class="header">
+<th align="left">键名</th>
+<th align="left">含义</th>
+<th align="left">类型</th>
+<th align="left">取值说明</th>
 </tr>
 </thead>
-
 <tbody>
-<tr>
-<td class="left">
-gender
-</td>
-<td class="left">
-性别
-</td>
-<td class="left">
-NSString
-</td>
-<td class="left">
-&quot;1&quot;或&quot;male&quot;为男 &quot;0&quot;或&quot;female&quot; 为女
-</td>
-</tr>
-
-
-<tr>
-<td class="left">
-age_group
-</td>
-<td class="left">
-年龄段
-</td>
-<td class="left">
-NSString
-</td>
-<td class="left">
-&quot;1&quot;…&quot;8&quot;,对应表如下
-</td>
-</tr>
-
-
-<tr>
-<td class="left">
-content
-</td>
-<td class="left">
-反馈内容
-</td>
-<td class="left">
-NSString
-</td>
-<td class="left">
-长度不应超过255个字符
-</td>
-</tr>
-
-
-<tr>
-<td class="left">
-remark
-</td>
-<td class="left">
-备注
-</td>
-<td class="left">
-NSDictionary
-</td>
-<td class="left">
-可以存放自定义的内容，比如评分等
-</td>
-</tr>
-
-
-<tr>
-<td class="left">
-contact
-</td>
-<td class="left">
-联系方式
-</td>
-<td class="left">
-NSDictionary
-</td>
-<td class="left">
-可以存放和用户信息相关的内容，比如用户名等
-</td>
+<tr class="odd">
+<td align="left">content</td>
+<td align="left">反馈内容</td>
+<td align="left">NSString</td>
+<td align="left">长度不应超过2000个字符</td>
 </tr>
 </tbody>
 </table>
-
-<p>&quot;remark&quot;和&quot;contact&quot;两个字段可供开发者传入自定义内容，这些内容会在网页上展现.</p>
-<p>&quot;age_group&quot; 取值和年龄段对照表</p>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="left" />
-
-<col  class="left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="left">
-&quot;1&quot;
-</td>
-<td class="left">
-小于18岁
-</td>
-</tr>
-
-
-<tr>
-<td class="left">
-&quot;2&quot;
-</td>
-<td class="left">
-18～24岁
-</td>
-</tr>
-
-
-<tr>
-<td class="left">
-&quot;3&quot;
-</td>
-<td class="left">
-25～30岁
-</td>
-</tr>
-
-
-<tr>
-<td class="left">
-&quot;4&quot;
-</td>
-<td class="left">
-31～35岁
-</td>
-</tr>
-
-
-<tr>
-<td class="left">
-&quot;5&quot;
-</td>
-<td class="left">
-36～40岁
-</td>
-</tr>
-
-
-<tr>
-<td class="left">
-&quot;6&quot;
-</td>
-<td class="left">
-41～50岁
-</td>
-</tr>
-
-
-<tr>
-<td class="left">
-&quot;7&quot;
-</td>
-<td class="left">
-51～59岁
-</td>
-</tr>
-
-
-<tr>
-<td class="left">
-&quot;8&quot;
-</td>
-<td class="left">
-大于60岁
-</td>
-</tr>
-</tbody>
-</table>
-
+<p>举例如下：</p>
+<pre class="sourceCode json"><code class="sourceCode json">{
+    <span class="dt">&quot;content&quot;</span>: <span class="st">&quot;hello&quot;</span>
+}</code></pre>
 <h1 id="相比旧版本的变化"><a href="#相比旧版本的变化"><span class="header-section-number">5</span> 相比旧版本的变化</a></h1>
 <ul>
+<li><strong>newReplies</strong> 属性更改为 <strong>theNewReplies</strong> 属性</li>
 <li>内置反馈界面由HTML变为Native，删除umFeedback.bundle资源文件</li>
+<li>由于新版不再使用HTML界面，所以下述接口的dictionary参数已无作用。</li>
+</ul>
+<pre class="sourceCode c"><code class="sourceCode c">+ (<span class="dt">void</span>)showFeedback:(UIViewController *)viewController withAppkey:(NSString *)appKey dictionary:(NSDictionary *)dictionary;</code></pre>
+<ul>
 <li>老用户仍可继续使用但不建议使用的函数有：</li>
 </ul>
 <pre class="sourceCode c"><code class="sourceCode c">+ (<span class="dt">void</span>)showFeedback:(UIViewController *)viewController withAppkey:(NSString *)appKey;
-+ (<span class="dt">void</span>)showFeedback:(UIViewController *)viewController withAppkey:(NSString *)appKey dictionary:(NSDictionary *)dictionary;
 + (<span class="dt">void</span>)checkWithAppkey:(NSString *)appkey;
 - (<span class="dt">void</span>)setAppkey:(NSString *)appKey delegate:(id&lt;UMFeedbackDataDelegate&gt;)newDelegate;</code></pre>
 <h1 id="技术支持"><a href="#技术支持"><span class="header-section-number">6</span> 技术支持</a></h1>
