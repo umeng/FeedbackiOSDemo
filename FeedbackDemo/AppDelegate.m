@@ -12,11 +12,6 @@
 #import "UMFeedback.h"
 #import "UMessage.h"
 
-#define APPKEY @"5425495dfd98c594860045ed"
-
-#define IOS_7_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
-#define IOS_8_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
-
 @implementation AppDelegate
 
 @synthesize window = _window;
@@ -27,13 +22,19 @@
     self.window.backgroundColor = [UIColor whiteColor];
 
     [UMFeedback setAppkey:APPKEY];
-    [UMFeedback setLogEnabled:YES];
+    [UMFeedback setLogEnabled:NO];
     
     ViewController *controller = [ViewController new];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
 //    navController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
     self.window.rootViewController = navController;
-    [self.window makeKeyAndVisible];
+    
+    NSDictionary *notificationDict = [launchOptions valueForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    if ([notificationDict valueForKey:@"aps"]) // 点击推送进入
+    {
+        [UMFeedback didReceiveRemoteNotification:notificationDict];
+    }
+
 
     // with remote push notification
     [UMessage startWithAppkey:APPKEY launchOptions:launchOptions];
@@ -74,8 +75,8 @@
                                                  name:nil
                                                object:nil];
     
-    NSDictionary *notificationDict = [launchOptions valueForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-    [UMFeedback didReceiveRemoteNotification:notificationDict];
+    
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
@@ -116,8 +117,7 @@
     NSLog(@"umeng message alias is: %@", [UMFeedback uuid]);
     [UMessage addAlias:[UMFeedback uuid] type:[UMFeedback messageType] response:^(id responseObject, NSError *error) {
         if (error != nil) {
-            NSLog(@"%@", error);
-            NSLog(@"%@", responseObject);
+            NSLog(@"%@", error.localizedDescription);
         }
     }];
 }

@@ -15,4 +15,9 @@
 
 #endif
 
-#define UMENG_APPKEY @"4eeb0c7b527015643b000003"
+#define APPKEY @"5425495dfd98c594860045ed"
+
+#define IOS_7_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
+#define IOS_8_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+
+#define UIColorFromRGB(r,g,b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]

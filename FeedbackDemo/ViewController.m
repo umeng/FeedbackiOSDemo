@@ -10,11 +10,6 @@
 #import "UMFeedback.h"
 #import "CustomViewController.h"
 
-
-#define IOS_7_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
-#define IOS_8_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
-#define UIColorFromRGB(r,g,b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
-
 @interface ViewController ()
 @property (strong, nonatomic) NSArray *buttons;
 @end
@@ -46,7 +41,6 @@
     NSMutableArray *buttons = [[NSMutableArray alloc] init];
     for (NSString *title in @[NSLocalizedString(@"Push", nil),
                               NSLocalizedString(@"Modal", nil),
-                              NSLocalizedString(@"List", nil),
                               NSLocalizedString(@"Custom", nil)]) {
         UIButton *feedbackButton = [[UIButton alloc] initWithFrame:CGRectMake(60, 100 * i, 200, 100)];
         feedbackButton.tag = i;
@@ -132,7 +126,7 @@
 - (void)feedbackButtonPressed:(UIButton *)sender {
     switch (sender.tag) {
         case 1:
-//            [[UMFeedback sharedInstance] setTitleColor:[UIColor blueColor]];
+//            [[UMFeedback sharedInstance] setTitleColor:[UIColor whiteColor]];
             [self.navigationController pushViewController:[UMFeedback feedbackViewController]
                                                  animated:YES];
             break;
@@ -143,9 +137,6 @@
 //            [UMFeedback showFeedback:self withAppkey:APPKEY];
             break;
         case 3:
-//            self.navigationController pushViewController:<#(UIViewController *)#> animated:<#(BOOL)#>
-            break;
-        case 4:
             [self.navigationController pushViewController:[CustomViewController new]
                                                  animated:YES];
             break;

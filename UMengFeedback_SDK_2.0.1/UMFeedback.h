@@ -5,8 +5,8 @@
 //  Created by ming hua on 2012-03-19.
 //  Updated by ming hua on 2013-04-17.
 //  Updated by cui guilin on 2014-09-12.
-//  Version 2.0
-//  Copyright (c) 2012年 umeng.com. All rights reserved.
+//  Version 2.0.2
+//  Copyright (c) 2014年 umeng.com. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -123,6 +123,11 @@
 - (void)setBackButton:(UIButton *)button;
 
 // For iOS 7 and later
+/**
+ *  set Navigationbar title color and close button tint color
+ *
+ *  @param color <#color description#>
+ */
 - (void)setTitleColor:(UIColor *)color;
 
 /**

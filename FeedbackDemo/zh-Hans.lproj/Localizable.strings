@@ -10,3 +10,9 @@
 "Push" = "以导航窗口显示";
 "Modal" = "以模态窗口显示";
 "Custom" = "使用自定义界面";
+
+"Get" = "发送Get请求";
+"Post" = "发送Post请求";
+"Update User Info" = "发送 updateUserInfo 请求";
+"showFeedback" = "显示用户反馈";
+"checkReply" = "发送 checkReply 请求";
