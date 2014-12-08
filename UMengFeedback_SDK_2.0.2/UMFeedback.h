@@ -51,7 +51,7 @@
 @property (nonatomic, strong) NSMutableArray *theNewReplies;
 
 /**
- *  the topic and replies
+ *  the topic and replies, also contains the failed one
  */
 @property (nonatomic, strong) NSMutableArray *topicAndReplies;
 

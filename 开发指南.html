@@ -570,6 +570,7 @@ self.feedback.delegate = self;
 }</code></pre>
 <h1 id="相比旧版本的变化"><a href="#相比旧版本的变化"><span class="header-section-number">5</span> 相比旧版本的变化</a></h1>
 <ul>
+<li><strong>topicAndReplies</strong> 属性在旧版本中只包含发送成功的内容，在新版本中既包含发送成功的内容，也包含发送失败的内容，通过 key &quot;is_failed&quot;来进行区分。</li>
 <li><strong>newReplies</strong> 属性更改为 <strong>theNewReplies</strong> 属性</li>
 <li>post: 接口中不再使用contact和remark字段，若要更新用户信息，需调用updateUserInfo接口。</li>
 <li>内置反馈界面由HTML变为Native，删除umFeedback.bundle资源文件</li>
