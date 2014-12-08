@@ -494,6 +494,41 @@ self.feedback.delegate = self;
 }<span class="kw">else</span>{
     NSLog(@<span class="st">&quot;用户回复&quot;</span>);
 }</code></pre>
+<p>下面是topicAndReplies中每一项key的介绍：</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">key</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">content</td>
+<td align="left">内容</td>
+</tr>
+<tr class="even">
+<td align="left">created_at</td>
+<td align="left">创建时间</td>
+</tr>
+<tr class="odd">
+<td align="left">is_failed</td>
+<td align="left">标示当前内容是否发送成功</td>
+</tr>
+<tr class="even">
+<td align="left">reply_id</td>
+<td align="left">唯一标示当前内容对象</td>
+</tr>
+<tr class="odd">
+<td align="left">type</td>
+<td align="left">标示回复类型，开发者的回复为&quot;dev_reply&quot;，用户的回复为&quot;user_reply&quot;</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
 <h2 id="voidupdateuserinfonsdictionary-info"><a href="#voidupdateuserinfonsdictionary-info"><span class="header-section-number">4.2</span> -(void)updateUserInfo:(NSDictionary *)info</a></h2>
 <p>payload字典实例如下，注意联系信息都放在 &quot;contact&quot; 这个键下面：</p>
 <pre class="sourceCode json"><code class="sourceCode json">{
