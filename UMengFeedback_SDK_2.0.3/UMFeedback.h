@@ -5,7 +5,7 @@
 //  Created by ming hua on 2012-03-19.
 //  Updated by ming hua on 2013-04-17.
 //  Updated by cui guilin on 2014-09-12.
-//  Version 2.0.2
+//  Version 2.0.3
 //  Copyright (c) 2014年 umeng.com. All rights reserved.
 //
 
