@@ -38,7 +38,6 @@
     for (NSString *title in @[NSLocalizedString(@"Get", nil),
                               NSLocalizedString(@"Post", nil),
                               NSLocalizedString(@"Update User Info", nil),
-                              NSLocalizedString(@"showFeedback", nil),
                               NSLocalizedString(@"checkReply", nil)]) {
         UIButton *feedbackButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 80 * i, 300, 100)];
         feedbackButton.tag = i;
@@ -84,9 +83,6 @@
                                                                         @"plain": @"very good"}}];
             break;
         case 4:
-            [UMFeedback showFeedback:self withAppkey:APPKEY];
-            break;
-        case 5:
             [UMFeedback checkWithAppkey:APPKEY];
             break;
         default:

@@ -11,6 +11,7 @@
 #import "ViewController.h"
 #import "UMFeedback.h"
 #import "UMessage.h"
+#import "UMOpus.h"
 
 @implementation AppDelegate
 
@@ -21,6 +22,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
 
+    [UMOpus setAudioEnable:YES];
     [UMFeedback setAppkey:APPKEY];
     [UMFeedback setLogEnabled:NO];
     
@@ -34,7 +36,6 @@
     {
         [UMFeedback didReceiveRemoteNotification:notificationDict];
     }
-
 
     // with remote push notification
     [UMessage startWithAppkey:APPKEY launchOptions:launchOptions];
@@ -113,6 +114,7 @@
 #pragma mark - Remote Notification
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    NSLog(@"device token is: %@", deviceToken);
     [UMessage registerDeviceToken:deviceToken];
     NSLog(@"umeng message alias is: %@", [UMFeedback uuid]);
     [UMessage addAlias:[UMFeedback uuid] type:[UMFeedback messageType] response:^(id responseObject, NSError *error) {

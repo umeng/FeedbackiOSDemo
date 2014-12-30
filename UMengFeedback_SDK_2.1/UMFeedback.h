@@ -5,11 +5,12 @@
 //  Created by ming hua on 2012-03-19.
 //  Updated by ming hua on 2013-04-17.
 //  Updated by cui guilin on 2014-09-12.
-//  Version 2.0.3
+//  Version 2.1
 //  Copyright (c) 2014年 umeng.com. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import "UMRecorder.h"
 #import <UIKit/UIKit.h>
 
 #define UMFBCheckFinishedNotification @"UMFBCheckFinishedNotification"
@@ -34,11 +35,12 @@
  */
 - (void)postFinishedWithError:(NSError *)error;
 
+- (void)stopRecordAndPlayback;
 @end
 
 
 #pragma mark - Feedback Object
-@interface UMFeedback : NSObject
+@interface UMFeedback : NSObject <RecorderDelegate>
 
 /**
  *  UMFeedback Data Delegate
@@ -65,6 +67,7 @@
 + (void)setLogEnabled:(BOOL)value;
 
 + (BOOL)feedbackLogEnabled;
+- (BOOL)audioEnabled;
 
 /**
  *  set feedback app key. you can find out the app key at: http://www.umeng.com/apps/setting
@@ -115,10 +118,6 @@
  */
 + (UMFeedback *)sharedInstance;
 
-/**
- *  get feedback replies from server
- */
-- (void)get;
 
 - (void)setBackButton:(UIButton *)button;
 
@@ -130,11 +129,19 @@
  */
 - (void)setTitleColor:(UIColor *)color;
 
+
+// 数据接口
+/**
+ *  get feedback replies from server
+ */
+- (void)get;
+
 /**
  *  post feedback repli to server
  *
  *  @param feedback_dictionary <#feedback_dictionary description#>
  */
+
 - (void)post:(NSDictionary *)feedback_dictionary;
 
 // set custom remark info
@@ -147,6 +154,14 @@
 
 - (void)updateUserInfo:(NSDictionary *)info;
 - (NSDictionary *)getUserInfo;
+
+// 推送相关
+- (void)setFeedbackViewController:(UIViewController *)controller shouldPush:(BOOL)shouldPush;
+
+// for record and playback
+- (void)stopRecordAndPlayback;
+- (void)playRecordWithReplyId:(NSString *)replyId;
+- (UMRecorder *)getRecorder;
 
 // 不建议使用的
 
