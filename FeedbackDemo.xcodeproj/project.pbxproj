@@ -7,10 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DA039C6D1A44386200C65E1D /* UMFeedbackLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA039C681A44386200C65E1D /* UMFeedbackLocalizable.strings */; };
-		DA039C6E1A44386200C65E1D /* UMFeedbackLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA039C681A44386200C65E1D /* UMFeedbackLocalizable.strings */; };
-		DA039C6F1A44386200C65E1D /* libUMFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA039C6A1A44386200C65E1D /* libUMFeedback.a */; };
-		DA039C701A44386200C65E1D /* libUMFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA039C6A1A44386200C65E1D /* libUMFeedback.a */; };
+		DA039C961A5405F900C65E1D /* UMFeedbackLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA039C7F1A5405F900C65E1D /* UMFeedbackLocalizable.strings */; };
+		DA039C971A5405F900C65E1D /* UMFeedbackLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA039C7F1A5405F900C65E1D /* UMFeedbackLocalizable.strings */; };
+		DA039C981A5405F900C65E1D /* libUMFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA039C811A5405F900C65E1D /* libUMFeedback.a */; };
+		DA039C991A5405F900C65E1D /* libUMFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA039C811A5405F900C65E1D /* libUMFeedback.a */; };
+		DA039C9A1A5405F900C65E1D /* bubble_min@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA039C831A5405F900C65E1D /* bubble_min@2x.png */; };
+		DA039C9B1A5405F900C65E1D /* bubble_min@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA039C831A5405F900C65E1D /* bubble_min@2x.png */; };
+		DA039C9C1A5405F900C65E1D /* cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA039C841A5405F900C65E1D /* cancel@2x.png */; };
+		DA039C9D1A5405F900C65E1D /* cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA039C841A5405F900C65E1D /* cancel@2x.png */; };
+		DA039C9E1A5405F900C65E1D /* microphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA039C851A5405F900C65E1D /* microphone@2x.png */; };
+		DA039C9F1A5405F900C65E1D /* microphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA039C851A5405F900C65E1D /* microphone@2x.png */; };
+		DA039CA01A5405F900C65E1D /* save@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA039C861A5405F900C65E1D /* save@2x.png */; };
+		DA039CA11A5405F900C65E1D /* save@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA039C861A5405F900C65E1D /* save@2x.png */; };
+		DA039CA21A5405F900C65E1D /* ToolViewInputText@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA039C871A5405F900C65E1D /* ToolViewInputText@2x.png */; };
+		DA039CA31A5405F900C65E1D /* ToolViewInputText@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA039C871A5405F900C65E1D /* ToolViewInputText@2x.png */; };
+		DA039CA41A5405F900C65E1D /* ToolViewInputTextHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA039C881A5405F900C65E1D /* ToolViewInputTextHL@2x.png */; };
+		DA039CA51A5405F900C65E1D /* ToolViewInputTextHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA039C881A5405F900C65E1D /* ToolViewInputTextHL@2x.png */; };
+		DA039CA61A5405F900C65E1D /* ToolViewInputVoice@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA039C891A5405F900C65E1D /* ToolViewInputVoice@2x.png */; };
+		DA039CA71A5405F900C65E1D /* ToolViewInputVoice@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA039C891A5405F900C65E1D /* ToolViewInputVoice@2x.png */; };
+		DA039CA81A5405F900C65E1D /* ToolViewInputVoiceHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA039C8A1A5405F900C65E1D /* ToolViewInputVoiceHL@2x.png */; };
+		DA039CA91A5405F900C65E1D /* ToolViewInputVoiceHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA039C8A1A5405F900C65E1D /* ToolViewInputVoiceHL@2x.png */; };
+		DA039CAA1A5405F900C65E1D /* umeng_fb_audio_dialog_cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA039C8B1A5405F900C65E1D /* umeng_fb_audio_dialog_cancel@2x.png */; };
+		DA039CAB1A5405F900C65E1D /* umeng_fb_audio_dialog_cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA039C8B1A5405F900C65E1D /* umeng_fb_audio_dialog_cancel@2x.png */; };
+		DA039CAC1A5405F900C65E1D /* umeng_fb_audio_dialog_content@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA039C8C1A5405F900C65E1D /* umeng_fb_audio_dialog_content@2x.png */; };
+		DA039CAD1A5405F900C65E1D /* umeng_fb_audio_dialog_content@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA039C8C1A5405F900C65E1D /* umeng_fb_audio_dialog_content@2x.png */; };
+		DA039CAE1A5405F900C65E1D /* umeng_fb_audio_play_01@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA039C8D1A5405F900C65E1D /* umeng_fb_audio_play_01@2x.png */; };
+		DA039CAF1A5405F900C65E1D /* umeng_fb_audio_play_01@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA039C8D1A5405F900C65E1D /* umeng_fb_audio_play_01@2x.png */; };
+		DA039CB01A5405F900C65E1D /* umeng_fb_audio_play_02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA039C8E1A5405F900C65E1D /* umeng_fb_audio_play_02@2x.png */; };
+		DA039CB11A5405F900C65E1D /* umeng_fb_audio_play_02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA039C8E1A5405F900C65E1D /* umeng_fb_audio_play_02@2x.png */; };
+		DA039CB21A5405F900C65E1D /* umeng_fb_audio_play_03@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA039C8F1A5405F900C65E1D /* umeng_fb_audio_play_03@2x.png */; };
+		DA039CB31A5405F900C65E1D /* umeng_fb_audio_play_03@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA039C8F1A5405F900C65E1D /* umeng_fb_audio_play_03@2x.png */; };
+		DA039CB41A5405F900C65E1D /* umeng_fb_audio_play_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA039C901A5405F900C65E1D /* umeng_fb_audio_play_default@2x.png */; };
+		DA039CB51A5405F900C65E1D /* umeng_fb_audio_play_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA039C901A5405F900C65E1D /* umeng_fb_audio_play_default@2x.png */; };
+		DA039CB61A5405F900C65E1D /* libUMOpus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA039C931A5405F900C65E1D /* libUMOpus.a */; };
+		DA039CB71A5405F900C65E1D /* libUMOpus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA039C931A5405F900C65E1D /* libUMOpus.a */; };
 		DA4397AD19D13C7E00BC40A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4397AC19D13C7E00BC40A4 /* AppDelegate.swift */; };
 		DA4397AF19D13C7E00BC40A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4397AE19D13C7E00BC40A4 /* ViewController.swift */; };
 		DA4397B219D13C7E00BC40A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4397B019D13C7E00BC40A4 /* Main.storyboard */; };
@@ -31,10 +61,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DA039C691A44386200C65E1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/UMFeedbackLocalizable.strings; sourceTree = "<group>"; };
-		DA039C6A1A44386200C65E1D /* libUMFeedback.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMFeedback.a; sourceTree = "<group>"; };
-		DA039C6B1A44386200C65E1D /* UMFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMFeedback.h; sourceTree = "<group>"; };
-		DA039C6C1A44386200C65E1D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/UMFeedbackLocalizable.strings"; sourceTree = "<group>"; };
+		DA039C801A5405F900C65E1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/UMFeedbackLocalizable.strings; sourceTree = "<group>"; };
+		DA039C811A5405F900C65E1D /* libUMFeedback.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMFeedback.a; sourceTree = "<group>"; };
+		DA039C831A5405F900C65E1D /* bubble_min@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bubble_min@2x.png"; sourceTree = "<group>"; };
+		DA039C841A5405F900C65E1D /* cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel@2x.png"; sourceTree = "<group>"; };
+		DA039C851A5405F900C65E1D /* microphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone@2x.png"; sourceTree = "<group>"; };
+		DA039C861A5405F900C65E1D /* save@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "save@2x.png"; sourceTree = "<group>"; };
+		DA039C871A5405F900C65E1D /* ToolViewInputText@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ToolViewInputText@2x.png"; sourceTree = "<group>"; };
+		DA039C881A5405F900C65E1D /* ToolViewInputTextHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ToolViewInputTextHL@2x.png"; sourceTree = "<group>"; };
+		DA039C891A5405F900C65E1D /* ToolViewInputVoice@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ToolViewInputVoice@2x.png"; sourceTree = "<group>"; };
+		DA039C8A1A5405F900C65E1D /* ToolViewInputVoiceHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ToolViewInputVoiceHL@2x.png"; sourceTree = "<group>"; };
+		DA039C8B1A5405F900C65E1D /* umeng_fb_audio_dialog_cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "umeng_fb_audio_dialog_cancel@2x.png"; sourceTree = "<group>"; };
+		DA039C8C1A5405F900C65E1D /* umeng_fb_audio_dialog_content@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "umeng_fb_audio_dialog_content@2x.png"; sourceTree = "<group>"; };
+		DA039C8D1A5405F900C65E1D /* umeng_fb_audio_play_01@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "umeng_fb_audio_play_01@2x.png"; sourceTree = "<group>"; };
+		DA039C8E1A5405F900C65E1D /* umeng_fb_audio_play_02@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "umeng_fb_audio_play_02@2x.png"; sourceTree = "<group>"; };
+		DA039C8F1A5405F900C65E1D /* umeng_fb_audio_play_03@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "umeng_fb_audio_play_03@2x.png"; sourceTree = "<group>"; };
+		DA039C901A5405F900C65E1D /* umeng_fb_audio_play_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "umeng_fb_audio_play_default@2x.png"; sourceTree = "<group>"; };
+		DA039C911A5405F900C65E1D /* UMFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMFeedback.h; sourceTree = "<group>"; };
+		DA039C931A5405F900C65E1D /* libUMOpus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMOpus.a; sourceTree = "<group>"; };
+		DA039C941A5405F900C65E1D /* UMOpus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMOpus.h; sourceTree = "<group>"; };
+		DA039C951A5405F900C65E1D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/UMFeedbackLocalizable.strings"; sourceTree = "<group>"; };
 		DA4397A119D13AB900BC40A4 /* FeedbackDemo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FeedbackDemo-Prefix.pch"; sourceTree = "<group>"; };
 		DA4397A819D13C7D00BC40A4 /* SwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA4397AB19D13C7E00BC40A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -68,8 +114,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA039C701A44386200C65E1D /* libUMFeedback.a in Frameworks */,
+				DA039C991A5405F900C65E1D /* libUMFeedback.a in Frameworks */,
 				DAA5306E1A00CCD50020A848 /* libUMessage_Sdk_1.1.0.a in Frameworks */,
+				DA039CB71A5405F900C65E1D /* libUMOpus.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,22 +124,55 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA039C6F1A44386200C65E1D /* libUMFeedback.a in Frameworks */,
+				DA039C981A5405F900C65E1D /* libUMFeedback.a in Frameworks */,
 				DAA5306D1A00CCD50020A848 /* libUMessage_Sdk_1.1.0.a in Frameworks */,
+				DA039CB61A5405F900C65E1D /* libUMOpus.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DA039C671A44386200C65E1D /* UMengFeedback_SDK_2.0.3 */ = {
+		DA039C7E1A5405F900C65E1D /* UMengFeedback_SDK_2.1 */ = {
 			isa = PBXGroup;
 			children = (
-				DA039C681A44386200C65E1D /* UMFeedbackLocalizable.strings */,
-				DA039C6A1A44386200C65E1D /* libUMFeedback.a */,
-				DA039C6B1A44386200C65E1D /* UMFeedback.h */,
+				DA039C7F1A5405F900C65E1D /* UMFeedbackLocalizable.strings */,
+				DA039C811A5405F900C65E1D /* libUMFeedback.a */,
+				DA039C821A5405F900C65E1D /* Resources */,
+				DA039C911A5405F900C65E1D /* UMFeedback.h */,
+				DA039C921A5405F900C65E1D /* UMOpus */,
 			);
-			path = UMengFeedback_SDK_2.0.3;
+			path = UMengFeedback_SDK_2.1;
+			sourceTree = "<group>";
+		};
+		DA039C821A5405F900C65E1D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DA039C831A5405F900C65E1D /* bubble_min@2x.png */,
+				DA039C841A5405F900C65E1D /* cancel@2x.png */,
+				DA039C851A5405F900C65E1D /* microphone@2x.png */,
+				DA039C861A5405F900C65E1D /* save@2x.png */,
+				DA039C871A5405F900C65E1D /* ToolViewInputText@2x.png */,
+				DA039C881A5405F900C65E1D /* ToolViewInputTextHL@2x.png */,
+				DA039C891A5405F900C65E1D /* ToolViewInputVoice@2x.png */,
+				DA039C8A1A5405F900C65E1D /* ToolViewInputVoiceHL@2x.png */,
+				DA039C8B1A5405F900C65E1D /* umeng_fb_audio_dialog_cancel@2x.png */,
+				DA039C8C1A5405F900C65E1D /* umeng_fb_audio_dialog_content@2x.png */,
+				DA039C8D1A5405F900C65E1D /* umeng_fb_audio_play_01@2x.png */,
+				DA039C8E1A5405F900C65E1D /* umeng_fb_audio_play_02@2x.png */,
+				DA039C8F1A5405F900C65E1D /* umeng_fb_audio_play_03@2x.png */,
+				DA039C901A5405F900C65E1D /* umeng_fb_audio_play_default@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DA039C921A5405F900C65E1D /* UMOpus */ = {
+			isa = PBXGroup;
+			children = (
+				DA039C931A5405F900C65E1D /* libUMOpus.a */,
+				DA039C941A5405F900C65E1D /* UMOpus.h */,
+			);
+			path = UMOpus;
 			sourceTree = "<group>";
 		};
 		DA4397A919D13C7E00BC40A4 /* SwiftDemo */ = {
@@ -130,7 +210,7 @@
 		DAC7C70019D033C3001B4E27 = {
 			isa = PBXGroup;
 			children = (
-				DA039C671A44386200C65E1D /* UMengFeedback_SDK_2.0.3 */,
+				DA039C7E1A5405F900C65E1D /* UMengFeedback_SDK_2.1 */,
 				DAA5306A1A00CCD50020A848 /* UMessage_Sdk_1.1.0 */,
 				DAC7C70B19D033C3001B4E27 /* FeedbackDemo */,
 				DA4397A919D13C7E00BC40A4 /* SwiftDemo */,
@@ -254,12 +334,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA039C9D1A5405F900C65E1D /* cancel@2x.png in Resources */,
+				DA039CAB1A5405F900C65E1D /* umeng_fb_audio_dialog_cancel@2x.png in Resources */,
+				DA039CB31A5405F900C65E1D /* umeng_fb_audio_play_03@2x.png in Resources */,
+				DA039CB11A5405F900C65E1D /* umeng_fb_audio_play_02@2x.png in Resources */,
+				DA039CA51A5405F900C65E1D /* ToolViewInputTextHL@2x.png in Resources */,
+				DA039CA31A5405F900C65E1D /* ToolViewInputText@2x.png in Resources */,
 				DAA530731A00CE850020A848 /* Localizable.strings in Resources */,
+				DA039C9F1A5405F900C65E1D /* microphone@2x.png in Resources */,
+				DA039CB51A5405F900C65E1D /* umeng_fb_audio_play_default@2x.png in Resources */,
+				DA039CA71A5405F900C65E1D /* ToolViewInputVoice@2x.png in Resources */,
+				DA039CAF1A5405F900C65E1D /* umeng_fb_audio_play_01@2x.png in Resources */,
+				DA039CA11A5405F900C65E1D /* save@2x.png in Resources */,
 				DA4397B219D13C7E00BC40A4 /* Main.storyboard in Resources */,
-				DA039C6E1A44386200C65E1D /* UMFeedbackLocalizable.strings in Resources */,
+				DA039C971A5405F900C65E1D /* UMFeedbackLocalizable.strings in Resources */,
+				DA039C9B1A5405F900C65E1D /* bubble_min@2x.png in Resources */,
 				DA4397D219D1496600BC40A4 /* Default-568h@2x.png in Resources */,
 				DA4397B719D13C7E00BC40A4 /* LaunchScreen.xib in Resources */,
 				DA4397B419D13C7E00BC40A4 /* Images.xcassets in Resources */,
+				DA039CAD1A5405F900C65E1D /* umeng_fb_audio_dialog_content@2x.png in Resources */,
+				DA039CA91A5405F900C65E1D /* ToolViewInputVoiceHL@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,10 +362,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAC7C71D19D033C3001B4E27 /* LaunchScreen.xib in Resources */,
-				DA039C6D1A44386200C65E1D /* UMFeedbackLocalizable.strings in Resources */,
+				DA039CA01A5405F900C65E1D /* save@2x.png in Resources */,
+				DA039C961A5405F900C65E1D /* UMFeedbackLocalizable.strings in Resources */,
+				DA039CAE1A5405F900C65E1D /* umeng_fb_audio_play_01@2x.png in Resources */,
+				DA039CA81A5405F900C65E1D /* ToolViewInputVoiceHL@2x.png in Resources */,
+				DA039CAA1A5405F900C65E1D /* umeng_fb_audio_dialog_cancel@2x.png in Resources */,
+				DA039C9E1A5405F900C65E1D /* microphone@2x.png in Resources */,
 				DAA530721A00CE850020A848 /* Localizable.strings in Resources */,
+				DA039CB41A5405F900C65E1D /* umeng_fb_audio_play_default@2x.png in Resources */,
+				DA039CA41A5405F900C65E1D /* ToolViewInputTextHL@2x.png in Resources */,
+				DA039CA21A5405F900C65E1D /* ToolViewInputText@2x.png in Resources */,
 				DAC7C71A19D033C3001B4E27 /* Images.xcassets in Resources */,
 				DA4397CE19D1484A00BC40A4 /* Default-568h@2x.png in Resources */,
+				DA039CB01A5405F900C65E1D /* umeng_fb_audio_play_02@2x.png in Resources */,
+				DA039CA61A5405F900C65E1D /* ToolViewInputVoice@2x.png in Resources */,
+				DA039C9C1A5405F900C65E1D /* cancel@2x.png in Resources */,
+				DA039CAC1A5405F900C65E1D /* umeng_fb_audio_dialog_content@2x.png in Resources */,
+				DA039C9A1A5405F900C65E1D /* bubble_min@2x.png in Resources */,
+				DA039CB21A5405F900C65E1D /* umeng_fb_audio_play_03@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,11 +409,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DA039C681A44386200C65E1D /* UMFeedbackLocalizable.strings */ = {
+		DA039C7F1A5405F900C65E1D /* UMFeedbackLocalizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DA039C691A44386200C65E1D /* Base */,
-				DA039C6C1A44386200C65E1D /* zh-Hans */,
+				DA039C801A5405F900C65E1D /* Base */,
+				DA039C951A5405F900C65E1D /* zh-Hans */,
 			);
 			name = UMFeedbackLocalizable.strings;
 			sourceTree = "<group>";
@@ -363,6 +471,8 @@
 					"$(PROJECT_DIR)/UMengFeedback_SDK_2.0",
 					"$(PROJECT_DIR)/UMessage_Sdk_1.1.0",
 					"$(PROJECT_DIR)/UMengFeedback_SDK_2.0.3",
+					"$(PROJECT_DIR)/UMengFeedback_SDK_2.1",
+					"$(PROJECT_DIR)/UMengFeedback_SDK_2.1/UMOpus",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftDemo/SwiftDemo-Bridging-Header.h";
@@ -383,6 +493,8 @@
 					"$(PROJECT_DIR)/UMengFeedback_SDK_2.0",
 					"$(PROJECT_DIR)/UMessage_Sdk_1.1.0",
 					"$(PROJECT_DIR)/UMengFeedback_SDK_2.0.3",
+					"$(PROJECT_DIR)/UMengFeedback_SDK_2.1",
+					"$(PROJECT_DIR)/UMengFeedback_SDK_2.1/UMOpus",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftDemo/SwiftDemo-Bridging-Header.h";
@@ -492,6 +604,8 @@
 					"$(PROJECT_DIR)/UMengFeedback_SDK_2.0.1",
 					"$(PROJECT_DIR)/UMengFeedback_SDK_2.0.2",
 					"$(PROJECT_DIR)/UMengFeedback_SDK_2.0.3",
+					"$(PROJECT_DIR)/UMengFeedback_SDK_2.1",
+					"$(PROJECT_DIR)/UMengFeedback_SDK_2.1/UMOpus",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -514,6 +628,8 @@
 					"$(PROJECT_DIR)/UMengFeedback_SDK_2.0.1",
 					"$(PROJECT_DIR)/UMengFeedback_SDK_2.0.2",
 					"$(PROJECT_DIR)/UMengFeedback_SDK_2.0.3",
+					"$(PROJECT_DIR)/UMengFeedback_SDK_2.1",
+					"$(PROJECT_DIR)/UMengFeedback_SDK_2.1/UMOpus",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

@@ -25,6 +25,7 @@
     [UMOpus setAudioEnable:YES];
     [UMFeedback setAppkey:APPKEY];
     [UMFeedback setLogEnabled:NO];
+    [[UMFeedback sharedInstance] setFeedbackViewController:[UMFeedback feedbackViewController] shouldPush:YES];
     
     ViewController *controller = [ViewController new];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];

@@ -137,7 +137,7 @@
 - (void)get;
 
 /**
- *  post feedback repli to server
+ *  post feedback reply to server
  *
  *  @param feedback_dictionary <#feedback_dictionary description#>
  */
