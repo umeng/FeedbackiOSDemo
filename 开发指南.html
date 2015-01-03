@@ -327,12 +327,14 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li><a href="#开启消息推送功能"><span class="toc-section-number">3</span> 开启消息推送功能</a><ul>
 <li><a href="#集成友盟消息推送组件"><span class="toc-section-number">3.1</span> 集成友盟消息推送组件</a></li>
 <li><a href="#添加消息推送代码"><span class="toc-section-number">3.2</span> 添加消息推送代码</a></li>
+<li><a href="#设置推送样式导航还是模态"><span class="toc-section-number">3.3</span> 设置推送样式（导航还是模态）</a></li>
 </ul></li>
 <li><a href="#使用语音输入"><span class="toc-section-number">4</span> 使用语音输入</a></li>
 <li><a href="#使用自定义反馈界面"><span class="toc-section-number">5</span> 使用自定义反馈界面</a><ul>
 <li><a href="#voidget"><span class="toc-section-number">5.1</span> -(void)get</a></li>
 <li><a href="#voidupdateuserinfonsdictionary-info"><span class="toc-section-number">5.2</span> -(void)updateUserInfo:(NSDictionary *)info</a></li>
 <li><a href="#voidpostnsdictionary-payload"><span class="toc-section-number">5.3</span> -(void)post:(NSDictionary *)payload</a></li>
+<li><a href="#使用语音输入-1"><span class="toc-section-number">5.4</span> 使用语音输入</a></li>
 </ul></li>
 <li><a href="#相比旧版本的变化"><span class="toc-section-number">6</span> 相比旧版本的变化</a></li>
 <li><a href="#技术支持"><span class="toc-section-number">7</span> 技术支持</a></li>
@@ -391,7 +393,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <pre class="sh"><code>pod install</code></pre>
 <h3 id="手动安装"><span class="header-section-number">2.1.2</span> 手动安装</h3>
 <p>也可以使用传统集成方式：</p>
-<p>下载 <a href="http://dev.umeng.com/files/download/UMFeedback_iOS_2.1.zip">iOS SDK</a>， 解压缩后得到 内容清单 所述文件，把 <strong>UMengFeedback_SDK_2.1</strong> 文件夹拖入Xcode项目工程中：</p>
+<p>下载 <a href="http://dev.umeng.com/files/download/UMFeedback_iOS_2.1.zip">iOS SDK</a>， 解压缩后得到 内容清单 所述文件，把 <strong>UMengFeedback_SDK_2.1</strong> 文件夹拖入Xcode项目工程中。如果需要支持语音输入的话，添加依赖库：AVFoundation.framework。</p>
 <h2 id="设置app-key相关"><span class="header-section-number">2.2</span> 设置App Key相关</h2>
 <p>在 <strong>AppDelegate.m</strong> 文件中，导入SDK头文件</p>
 <pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="ot">#import &quot;UMFeedback.h&quot;</span></code></pre>
@@ -479,12 +481,22 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <span class="co">//    [UMessage didReceiveRemoteNotification:userInfo];</span>
     [UMFeedback didReceiveRemoteNotification:userInfo];
 }</code></pre>
+<h2 id="设置推送样式导航还是模态"><span class="header-section-number">3.3</span> 设置推送样式（导航还是模态）</h2>
+<p>使用如下的实例方法来设置推送要用的ViewController和推送样式。其中第一个参数代表反馈界面ViewController，第二个参数代表使用导航样式还是模态样式来显示，YES的话用导航，NO的话用模态。默认使用内置模态反馈界面显示。</p>
+<pre class="sourceCode c"><code class="sourceCode c">- (<span class="dt">void</span>)setFeedbackViewController:(UIViewController *)controller shouldPush:(BOOL)shouldPush;</code></pre>
+<p>设置使用默认导航反馈界面来显示推送</p>
+<p><code>c  [[UMFeedback sharedInstance] setFeedbackViewController:nil shouldPush:YES];</code></p>
+<p>设置使用默认模态反馈界面来显示推送</p>
+<p><code>c  [[UMFeedback sharedInstance] setFeedbackViewController:nil shouldPush:NO];</code></p>
+<p>如果自定义界面的话，把自定义界面的ViewController实例传入第一个参数即可，第二个参数根据自定义界面是模态还是导航来设置，必须要一致。</p>
 <h1 id="使用语音输入"><span class="header-section-number">4</span> 使用语音输入</h1>
+<p>首先注意确认添加了依赖库： AVFoundation.framework</p>
 <p>在 <em>AppDelegate.m</em>文件中，导入头文件：</p>
 <pre class="sourceCode c"><code class="sourceCode c"><span class="er">#import &quot;UMOpus.h&quot;</span></code></pre>
 <p>在 - (BOOL)application:(UIApplication <em>)application didFinishLaunchingWithOptions:(NSDictionary </em>)launchOptions 中，开启语音输入：</p>
 <pre class="sourceCode c"><code class="sourceCode c">[UMOpus setAudioEnable:YES]</code></pre>
-<p>则内置的反馈界面就会显示语音输入按钮了。</p>
+<p>则内置的反馈界面就会显示语音输入按钮了。若要禁用语音输入，设置为 <em>NO</em> 即可。</p>
+<p>如果要删除语音库，则直接把UMOpus目录从工程中删除即可。</p>
 <h1 id="使用自定义反馈界面"><span class="header-section-number">5</span> 使用自定义反馈界面</h1>
 <pre class="sourceCode c"><code class="sourceCode c">@property (strong, nonatomic) UMFeedback *feedback;
 
@@ -610,6 +622,20 @@ self.feedback.delegate = self;
 <pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
     <span class="dt">&quot;content&quot;</span><span class="fu">:</span> <span class="st">&quot;hello&quot;</span>
 <span class="fu">}</span></code></pre>
+<h2 id="使用语音输入-1"><span class="header-section-number">5.4</span> 使用语音输入</h2>
+<p>为方便开发者使用语音相关功能，友盟把语音模块做了封装，直接提供录音、播放等功能。</p>
+<p>首先，通过UMFeedback获取到内置的UMRecorder实例：</p>
+<pre class="sourceCode c"><code class="sourceCode c">[[UMFeedback sharedInstance] getRecorder];</code></pre>
+<p>UMRecorder有如下功能：</p>
+<ol style="list-style-type: decimal">
+<li>录音 (startRecording)</li>
+<li>正常结束录音 (stopRecording)</li>
+<li>取消录音 (cancelRecording)</li>
+<li>设置当前录音的replyId (setCurrentReplyId:)</li>
+<li>持久化当前录音 (saveFile)</li>
+<li>播放录音 (startPlaybackWithReplyId:)</li>
+<li>停止播放 (stopPlayback)</li>
+</ol>
 <h1 id="相比旧版本的变化"><span class="header-section-number">6</span> 相比旧版本的变化</h1>
 <ul>
 <li><strong>topicAndReplies</strong> 属性在旧版本中只包含发送成功的内容，在新版本中既包含发送成功的内容，也包含发送失败的内容，通过 key &quot;is_failed&quot;来进行区分。</li>
