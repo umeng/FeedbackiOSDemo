@@ -327,7 +327,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li><a href="#开启消息推送功能"><span class="toc-section-number">3</span> 开启消息推送功能</a><ul>
 <li><a href="#集成友盟消息推送组件"><span class="toc-section-number">3.1</span> 集成友盟消息推送组件</a></li>
 <li><a href="#添加消息推送代码"><span class="toc-section-number">3.2</span> 添加消息推送代码</a></li>
-<li><a href="#设置推送样式导航还是模态"><span class="toc-section-number">3.3</span> 设置推送样式（导航还是模态）</a></li>
+<li><a href="#设置收到推送后进入反馈页面的样式导航还是模态"><span class="toc-section-number">3.3</span> 设置收到推送后进入反馈页面的样式（导航还是模态）</a></li>
 </ul></li>
 <li><a href="#使用语音输入"><span class="toc-section-number">4</span> 使用语音输入</a></li>
 <li><a href="#使用自定义反馈界面"><span class="toc-section-number">5</span> 使用自定义反馈界面</a><ul>
@@ -481,7 +481,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <span class="co">//    [UMessage didReceiveRemoteNotification:userInfo];</span>
     [UMFeedback didReceiveRemoteNotification:userInfo];
 }</code></pre>
-<h2 id="设置推送样式导航还是模态"><span class="header-section-number">3.3</span> 设置推送样式（导航还是模态）</h2>
+<h2 id="设置收到推送后进入反馈页面的样式导航还是模态"><span class="header-section-number">3.3</span> 设置收到推送后进入反馈页面的样式（导航还是模态）</h2>
 <p>使用如下的实例方法来设置推送要用的ViewController和推送样式。其中第一个参数代表反馈界面ViewController，第二个参数代表使用导航样式还是模态样式来显示，YES的话用导航，NO的话用模态。默认使用内置模态反馈界面显示。</p>
 <pre class="sourceCode c"><code class="sourceCode c">- (<span class="dt">void</span>)setFeedbackViewController:(UIViewController *)controller shouldPush:(BOOL)shouldPush;</code></pre>
 <p>设置使用默认导航反馈界面来显示推送</p>
@@ -636,6 +636,7 @@ self.feedback.delegate = self;
 <li>播放录音 (startPlaybackWithReplyId:)</li>
 <li>停止播放 (stopPlayback)</li>
 </ol>
+<p>录音结束后，直接调用 <em>post:</em> 接口，传入空字典即可完成语音发送。SDK会在本地topicAndReplies中增加一条回复数据，其中包含录音文件路径、录音时长、replyId等信息。开发者可以据此进行回放。</p>
 <h1 id="相比旧版本的变化"><span class="header-section-number">6</span> 相比旧版本的变化</h1>
 <ul>
 <li><strong>topicAndReplies</strong> 属性在旧版本中只包含发送成功的内容，在新版本中既包含发送成功的内容，也包含发送失败的内容，通过 key &quot;is_failed&quot;来进行区分。</li>
